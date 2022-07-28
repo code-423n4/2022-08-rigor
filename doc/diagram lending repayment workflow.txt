@@ -1,0 +1,19 @@
+
+participant Community Owner
+participant Builder
+participant Community
+participant Debt Token
+ 
+Builder->Community:repayLender(uint256 _communityID, address _project, int256 _repayAmount)
+Community->Community:claim Interest based on project APR and time elapsed
+
+note left of Community:Can lead to more debt token minted
+
+Community->Debt Token: burn lender's (community owner) debt token 
+Builder->Community Owner: token transfer 
+
+note over Community Owner,Project: Offchain repayment
+Community Owner->Community:reduceDebt(uint256 _communityID, address _project, uint256 _repayAmount, bytes _details)
+Community->Community:claim Interest based on project APR and time elapsed
+note left of Community:Can lead to more debt token minted
+Community->Debt Token: burn lender's (community owner) debt token

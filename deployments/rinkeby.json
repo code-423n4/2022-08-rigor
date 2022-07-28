@@ -1,0 +1,13 @@
+{
+  "network": "rinkeby",
+  "HomeFiProxy Contract Address": "0x5d00B82009E20E7fa4C1506d3D785702094C3828",
+  "HomeFi ERC721 Contract Address": "0x9361613391Ae3de8112F9571193268363B8704C5",
+  "Project Factory Contract Address": "0xD2DE87906f78002058587123c31EDC43f94a6Bba",
+  "Community Contract Address": "0xDd725766c86B0BEe05A89b5587aAd4da3ACE37Ee",
+  "Disputes Contract Address": "0x448d745DeA689388CbAd5b1Bea8c204E9464C8C1",
+  "HomeFi Wrapped Ether ERC20 Address": "0x023b8c95230D20b8D961E1A3D865329ed68D948a",
+  "HomeFi Wrapped Dai ERC20 Address": "0x44409F716055DC7FC1d806747E51A5228068E5fe",
+  "HomeFi Wrapped USDC ERC20 Address": "0xB6adD117a3Fb5461AFc254F6A7804DD838b7F9f9",
+  "Task Library Address": "0xDe119525C92995276187f04DD72d09E884320486",
+  "Block Number": "11104110"
+}

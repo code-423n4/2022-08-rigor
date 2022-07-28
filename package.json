@@ -1,0 +1,71 @@
+{
+  "name": "homefi",
+  "version": "0.1.0",
+  "license": "MIT",
+  "scripts": {
+    "local-node": "hardhat node --hostname 0.0.0.0",
+    "compileCI": "TS_NODE_TRANSPILE_ONLY=1 yarn hardhat compile",
+    "compile": "hardhat compile",
+    "test": "hardhat test",
+    "coverage": "hardhat coverage",
+    "help": "hardhat help",
+    "clean": "hardhat clean",
+    "solhint": "solhint -f table \"contracts/{*,**/*}.sol\"",
+    "format": "prettier --ignore-path .gitignore --write \"{*,**/*}.{ts,js,json,md,sol}\"",
+    "deploy-rinkeby": "hardhat run scripts/deploy.ts --network rinkeby",
+    "deploy-local": "hardhat run scripts/deploy.ts --network hardhat"
+  },
+  "lint-staged": {
+    "*.{json,yml,yaml,md,ts,js,sol}": [
+      "prettier --write"
+    ]
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^16.1.0",
+    "@commitlint/config-conventional": "^16.0.0",
+    "@ethersproject/address": "^5.5.0",
+    "@nomiclabs/hardhat-ethers": "^2.0.4",
+    "@nomiclabs/hardhat-etherscan": "^3.0.0",
+    "@nomiclabs/hardhat-solhint": "^2.0.0",
+    "@nomiclabs/hardhat-waffle": "^2.0.2",
+    "@typechain/ethers-v5": "^9.0.0",
+    "@typechain/hardhat": "^4.0.0",
+    "@types/big.js": "^6.1.2",
+    "@types/dotenv": "^8.2.0",
+    "@types/mocha": "^9.1.0",
+    "@types/semver": "^7.3.9",
+    "@typescript-eslint/eslint-plugin": "^5.10.1",
+    "@typescript-eslint/parser": "^5.10.1",
+    "chai": "^4.3.6",
+    "delay": "^5.0.0",
+    "dotenv": "^14.3.2",
+    "ethereum-waffle": "^3.4.0",
+    "ethers": "^5.5.3",
+    "global": "^4.4.0",
+    "hardhat": "^2.8.3",
+    "hardhat-contract-sizer": "^2.4.0",
+    "hardhat-deploy": "^0.9.28",
+    "hardhat-deploy-ethers": "^0.3.0-beta.13",
+    "hardhat-gas-reporter": "^1.0.7",
+    "husky": "^7.0.4",
+    "lint-staged": "^12.3.2",
+    "mocha": "^9.2.0",
+    "node-fetch": "^2.6.1",
+    "prettier": "^2.5.1",
+    "prettier-plugin-solidity": "^1.0.0-beta.19",
+    "solhint": "^3.3.6",
+    "solhint-plugin-prettier": "^0.0.5",
+    "solidity-coverage": "^0.7.18",
+    "ts-generator": "^0.1.1",
+    "ts-node": "^10.4.0",
+    "typechain": "^7.0.0",
+    "typescript": "^4.5.5"
+  },
+  "dependencies": {
+    "@gnosis.pm/safe-core-sdk": "^0.3.1",
+    "@gnosis.pm/safe-core-sdk-types": "^0.1.1",
+    "@gnosis.pm/safe-service-client": "^0.1.1",
+    "@openzeppelin/contracts": "^4.4.2",
+    "@openzeppelin/contracts-upgradeable": "^4.4.2"
+  }
+}

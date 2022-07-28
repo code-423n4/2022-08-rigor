@@ -1,53 +1,5 @@
-# ✨ So you want to sponsor a contest
-
-This `README.md` contains a set of checklists for our contest collaboration.
-
-Your contest will use two repos: 
-- **a _contest_ repo** (this one), which is used for scoping your contest and for providing information to contestants (wardens)
-- **a _findings_ repo**, where issues are submitted (shared with you after the contest) 
-
-Ultimately, when we launch the contest, this contest repo will be made public and will contain the smart contracts to be reviewed and all the information needed for contest participants. The findings repo will be made public after the contest report is published and your team has mitigated the identified issues.
-
-Some of the checklists in this doc are for **C4 (🐺)** and some of them are for **you as the contest sponsor (⭐️)**.
-
----
-
-# Contest setup
-
-## ⭐️ Sponsor: Provide contest details
-
-Under "SPONSORS ADD INFO HERE" heading below, include the following:
-
-- [ ] Create a PR to this repo with the below changes:
-- [ ] Name of each contract and:
-  - [ ] source lines of code (excluding blank lines and comments) in each
-  - [ ] external contracts called in each
-  - [ ] libraries used in each
-- [ ] Describe any novel or unique curve logic or mathematical models implemented in the contracts
-- [ ] Does the token conform to the ERC-20 standard? In what specific ways does it differ?
-- [ ] Describe anything else that adds any special logic that makes your approach unique
-- [ ] Identify any areas of specific concern in reviewing the code
-- [ ] Add all of the code to this repo that you want reviewed
-
-
----
-
-# Contest prep
-
-## ⭐️ Sponsor: Contest prep
-- [ ] Provide a self-contained repository with working commands that will build (at least) all in-scope contracts, and commands that will run tests producing gas reports for the relevant contracts.
-- [ ] Make sure your code is thoroughly commented using the [NatSpec format](https://docs.soliditylang.org/en/v0.5.10/natspec-format.html#natspec-format).
-- [ ] Modify the bottom of this `README.md` file to describe how your code is supposed to work with links to any relevent documentation and any other criteria/details that the C4 Wardens should keep in mind when reviewing. ([Here's a well-constructed example.](https://github.com/code-423n4/2021-06-gro/blob/main/README.md))
-- [ ] Please have final versions of contracts and documentation added/updated in this repo **no less than 24 hours prior to contest start time.**
-- [ ] Be prepared for a 🚨code freeze🚨 for the duration of the contest — important because it establishes a level playing field. We want to ensure everyone's looking at the same code, no matter when they look during the contest. (Note: this includes your own repo, since a PR can leak alpha to our wardens!)
-- [ ] Promote the contest on Twitter (optional: tag in relevant protocols, etc.)
-- [ ] Share it with your own communities (blog, Discord, Telegram, email newsletters, etc.)
-- [ ] Optional: pre-record a high-level overview of your protocol (not just specific smart contract functions). This saves wardens a lot of time wading through documentation.
-- [ ] Delete this checklist and all text above the line below when you're ready.
-
----
-
 # Rigor Protocol contest details
+
 - $47,500 USDC main award pot
 - $2,500 USDC gas optimization award pot
 - Join [C4 Discord](https://discord.gg/code4rena) to register
@@ -56,19 +8,277 @@ Under "SPONSORS ADD INFO HERE" heading below, include the following:
 - Starts August 01, 2022 20:00 UTC
 - Ends August 06, 2022 20:00 UTC
 
-[ ⭐️ SPONSORS ADD INFO HERE ]
+| Glossary        |                                                                                                                                                                                                                                                                               |
+| --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Builder         | One who contracts for and supervises the construction of real estate. Builders are the one to create projects                                                                                                                                                                 |
+| Project         | Entity defined by a sum of tasks, a budget. It represents a real estate construction and is linked to a builder, contractor and subcontractor.                                                                                                                                |
+| Contractor      | One that agrees to furnish materials or perform services at a specified price, especially for construction work. He is invited by a builder on a project. He can assign a subcontractor on project tasks. Builder can act as a contractor.                                    |
+| Subcontractor   | One who agrees to perform the work specified in a project task. He is assigned to the task by the project's contractor. Contractor can act as a subcontractor.                                                                                                                |
+| Community       | Entity with an owner and members aiming at providing loans to projects. Members can publish their projects to the community. A project can only be published to one community at a time.                                                                                      |
+| Community owner | only member able to provide loans to published projects                                                                                                                                                                                                                       |
+| Task            | Entity defined by a cost, a subcontractor, and a status. a task can be Inactive, Active or Complete. Tasks can be flagged as Allocated when budget for this task has bee provisioned. When subcontractor confirms the assignment on a task it is being flagged as SCConfirmed |
+| Debt token      | ERC20 token mint and burn capable but with disabled transfer. Only the community contract is able to mint and burn these tokens. They represent the debt owned by the builder to the community owner when a loan has been supplied to the builder for a project               |
+| HomeFi          | acronym for Home Finance it is the module where all the protocol modules are linked. Addresses of allowed currencies, project factory, community, treasury and dispute contracts are registered there.                                                                        |
+| Token Currency  | Crypto currencies used for payment by the protocol. For native currencies like ETH or XDAI we use the wrapped version only.                                                                                                                                                   |
 
-| Glossary| |
-|-------------------------------|------------------------------------------------------|
-| Community.sol | Contains all project publication and lender funding logic. Lenders fund project contracts through Community.sol, and Builders repay lenders through Community.sol as well. |
-| Dispute.sol | In the event that a contractor (general or sub) does not get their funds and should have received them, or if there is negligence or malfeasance in the relationship between a builder and lender, participants permissioned in the project have the ability to raise a dispute that HomeFi's admins (in our case Rigor) are able to arbitrate to make sure funds arrive in the correct user's wallet. |
-|DebtToken.sol|Used to wrap Ether, USDC, or Dai and collateralize a given project. hTokens are given to lenders in the Community.sol contract as a receipt to track their lending into the project. On an builder's repayment of a project, hTokens are instantly destroyed, and the underlying collateral is returned + interest for the loan duration.|
-| HomeFi.sol | The main entry point for the HomeFi Smart Contract ecosystem. Administrative actions are executed through this contract; new project contracts are created from this contract with accompanying ERC721 for each project. |
-|HomeFiProxy.sol|Upgradability proxy as documented by [OpenZeppelin](https://docs.openzeppelin.com/upgrades-plugins/1.x/proxies)|
-|Project.sol| Child contract deployed from HomeFi.sol, Project.sol contains the primary logic around construction project management. Onboarding contractors, fund escrow, and completion tracking are all managed here. Significant multi-signature and meta-transaction functionality is included here.|
-|ProjectFactory.sol| Technically separate from HomeFi.sol but can only be accessed by HomeFi.sol. Uses [clones](https://docs.openzeppelin.com/contracts/4.x/api/proxy#Clones") to achieve the minimal use of gas when deploying new Project contracts.|
+## Areas of specific concern in reviewing the code
 
+The focus is to try and find any logic errors or ways to drain funds from the protocol in a way that is advantageous for an attacker at the expense of users with funds invested in the protocol.
+
+Here are some areas that are of interest :
+
+- signatures order/concatenation included in sensitive calls.
+- meta transaction
+- smart contract updates and clone factory
+- debt issuance and interest calculation.
+- malicious parties teaming up against other parties. i.e can a contractor and a subcontractor freeze or drain funds without the builder agreement ?
+- funds sitting on project getting stuck.
 
 ## Protocol Overview
-HomeFi protocol is a generalized protocol that provides public, permissionless, decentralized financial infrastructure for home finance. Our mission is to make home finance open, accessible and positive-sum for everyone on earth.
 
+HomeFi protocol is a generalized protocol that provides public, permission less, decentralized financial infrastructure for home finance. Our mission is to make home finance open, accessible and positive-sum for everyone on earth.
+
+The Protocol is divided into modules with different areas of concerns.
+
+![HomeFi relationship between entities](doc/High%20Level%20Archi.png)
+
+All modules are behind proxies. `HomeFi Proxy` is responsible for initializing all the modules contract in the correct sequential order and generate upgradable proxy for them.
+
+To improve the user experience of construction professionals using the protocol, we implemented eip-2771 meta transactions thanks to OpenZeppelin base contracts.
+
+## Flows
+
+Here are some sequence diagrams for the main rigor flows.
+Home builder will create a project and add tasks to the project. A per task budget is defined. The builder can publish the project to communities he is a member of. Community provide fix APR loans to builders .
+Thanks to the loan tasks will be funded and each time a subcontractor completes them he will receive the assigned budget. Finally after selling the real estate the builder is able to repay the loan with interest.
+Of course depending on the step different signatures will be required to execute the transaction onchain. The repayment can be mark as done off chain through an escrow and directly between the community owner (aka lender) and the builder.
+
+## From project creation to community lending to the project
+
+1. First a `builder` creates a `project` by calling the `createProject()` function on [HomeFi](contracts/HomeFi.sol).
+   It will trigger the deployment of a new [project](contracts/Project.sol) thanks to the [project factory](contracts/ProjectFactory.sol).
+
+2. `Builder` invites a `general contractor`. It requires signing data that includes the `contractor` address and the `project` address by both the `contractor` and the `builder`. The signatures and data are used to call `inviteContractor(bytes _data, bytes _signature)`
+
+3. Builder add [tasks](contracts/libraries/Tasks.sol) to the project. It requires signing data that includes tasks costs, a hash (task metadata), tasks count and the `project` address. Both `builder` and `contractor` have to sign the data. The signatures and data are used to call `addTasks(bytes _data, bytes _signature)`
+
+4. Community Owner creates a [community](contracts/Community.sol) by calling `createCommunity(bytes _hash, address _currency)` on the community contract where all the communities are registered. It requires the address of the currency used by the community for lending. The currency must be register in [HomeFi](contracts/HomeFi.sol) to be valid. It also requires a hash (community metadata).
+
+5. `Builder` is invited to be a member of that new community by the `community owner`. They both have to sign data including the community ID, the new member address and a message hash (the message can be anything). The data and the signatures in the right order is required to call `addMember(bytes _data, bytes _signatures)` on the community contract. It will add the builder as a community member allowing its projects to be published in the community.
+
+6. Builder publishes his project to the community. It requires signing data that
+   includes community ID, apr, publishing fee and nonce . Both `builder` and `community owner` have to sign the data. The signatures and data are used to call `publishProject(bytes _data, bytes _signature)` .
+   Note that you cannot submit a project with no total budget. Therefore it requires at least one task with a budget > 0.
+
+7. **Optional** the builder can adjust the amount of the loan requested to a community by calling `toggleLendingNeeded(uint256 _communityID, address _project, uint256 _lendingNeeded)`
+
+8. `Community owner` lends fund to the published project by calling `lendToProject(uint256 _cost)`. This call will update accrued interest, mint debt token for the community owner and transfer tokens to the project contract address.
+
+![Community lend to project](doc/lend%20to%20project.png)
+
+## Tasks completion and payment
+
+1. Builder add [tasks](contracts/libraries/Tasks.sol) to the project. It requires signing data that includes tasks costs, a hash (task metadata), tasks count and the `project` address. Both `builder` and `contractor` have to sign the data. The signatures and data are used to call `addTasks(bytes _data, bytes _signature)`
+
+2. `Contractor` assign tasks to `subcontractor` by calling `inviteSC(uint256[] _index, address[] _to)` providing tasks ID and subcontractor address. Subcontractor accepts by calling `acceptInviteSC(uint256[] _taskList)`.
+
+3. Tasks need to be funded to be marked as completed. Although it can be funded through the community, the builder can also fund its project by calling directly `lendToProject(uint256 _cost)` on the project contract address.
+
+4. Task is completed by calling `setComplete(bytes _data, bytes _signature)`. It requires signing data that includes task ID and the `project` address. `builder`, `contractor` and `subcontractor` have to sign the data. If there is no ongoing dispute about that project, task status is updated and payment is made. Indeed tokens are transferred from the project to the subcontractor's address.
+
+![Task creation and completion](doc/task%20flow.png)
+
+## Lending repayment
+
+- `Builder` repays the loan by calling `repayLender(uint256 _communityID, address _project, int256 _repayAmount)` on community. It will calculate the owned interest and update the remaining debt. This will trigger the burnt of lender's debt and will transfer tokens from `builder` to `community owner`.
+
+- If for instance an offchain repayment occurred, `community owner` can trigger `reduceDebt(uint256 _communityID, address _project, uint256 _repayAmount, bytes _details)`. It will also calculate the owned interest update the remaining debt and burn `community owner`'s debt token. Note that no token transfer between `builder` and `lender` will happen in that case.
+
+![Builder repays Community](doc/builder%20repays%20community.png)
+
+## Smart Contracts
+
+All the contracts in this section are to be reviewed. Any contracts not in this list are to be ignored for this contest. A further breakdown of [contracts and their dependencies can be found here](https://docs.google.com/spreadsheets/d/1zrnn5i7L8PpICnjI-C7KcE_ITCVpiNnGbMLpFcT6gEU/edit#gid=0)
+
+| Overview           |                                                                                                                                                                                                                                                                                                                                                                                                        |
+| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Community.sol      | Contains all project publication and lender funding logic. Lenders fund project contracts through Community.sol, and Builders repay lenders through Community.sol as well.                                                                                                                                                                                                                             |
+| Dispute.sol        | In the event that a contractor (general or sub) does not get their funds and should have received them, or if there is negligence or malfeasance in the relationship between a builder and lender, participants permissioned in the project have the ability to raise a dispute that HomeFi's admins (in our case Rigor) are able to arbitrate to make sure funds arrive in the correct user's wallet. |
+| DebtToken.sol      | Used to wrap Ether, USDC, or Dai and collateralize a given project. hTokens are given to lenders in the Community.sol contract as a receipt to track their lending into the project. On an builder's repayment of a project, hTokens are instantly destroyed, and the underlying collateral is returned + interest for the loan duration.                                                              |
+| HomeFi.sol         | The main entry point for the HomeFi Smart Contract ecosystem. Administrative actions are executed through this contract; new project contracts are created from this contract with accompanying ERC721 for each project.                                                                                                                                                                               |
+| HomeFiProxy.sol    | Upgradability proxy as documented by [OpenZeppelin](https://docs.openzeppelin.com/upgrades-plugins/1.x/proxies)                                                                                                                                                                                                                                                                                        |
+| Project.sol        | Child contract deployed from HomeFi.sol, Project.sol contains the primary logic around construction project management. Onboarding contractors, fund escrow, and completion tracking are all managed here. Significant multi-signature and meta-transaction functionality is included here.                                                                                                            |
+| ProjectFactory.sol | Technically separate from HomeFi.sol but can only be accessed by HomeFi.sol. Uses [clones](https://docs.openzeppelin.com/contracts/4.x/api/proxy#Clones") to achieve the minimal use of gas when deploying new Project contracts.                                                                                                                                                                      |
+
+### HomeFiProxy.sol (93 sloc each)
+
+- Upgradability proxy as documented by [OpenZeppelin](https://docs.openzeppelin.com/upgrades-plugins/1.x/proxies)
+
+### HomeFi.sol (197 sloc each)
+
+The main entry point for the HomeFi Smart Contract ecosystem. Administrative actions are executed through this contract; new project contracts are created from this contract with accompanying ERC721 for each project.
+
+- ERC2771 compatible with [ERC2771Context from OpenZeppelin](https://docs.openzeppelin.com/contracts/4.x/api/metatx#ERC2771Context).
+- It uses [Reentrancy Guard from OpenZeppelin](https://docs.openzeppelin.com/contracts/4.x/api/security#ReentrancyGuard).
+
+### Project.sol (474 sloc each)
+
+Child contract deployed from HomeFi.sol, Project.sol contains the primary logic around construction project management. Onboarding contractors, fund escrow, and completion tracking are all managed here. Significant multi-signature and meta-transaction functionality is included here.
+
+- It uses [Reentrancy Guard from OpenZeppelin](https://docs.openzeppelin.com/contracts/4.x/api/security#ReentrancyGuard).
+- It uses [SafeERC20Upgradeable from OpenZeppelin](https://docs.openzeppelin.com/contracts/4.x/api/token/erc20#SafeERC20) for all debt token transfers.
+- As we are heavily using signatures as params for sensitive operations. We created a [Signature decoder library](/contracts/libraries/SignatureDecoder.sol) that is able to recover multiple signatures compacted in a bytes format as well as recover the address who signed the message.
+- Tasks are a big part of a project. We created a [task library](/contracts/libraries/Tasks.sol) for all task related operations.
+- ERC2771 compatible with [ERC2771Context from OpenZeppelin](https://docs.openzeppelin.com/contracts/4.x/api/metatx#ERC2771Context).
+
+### ProjectFactory.sol (56 sloc each)
+
+Technically separate from HomeFi.sol but can only be accessed by HomeFi.sol.
+
+- Uses [clones](https://docs.openzeppelin.com/contracts/4.x/api/proxy#Clones") to achieve the minimal use of gas when deploying new Project contracts.
+- ERC2771 compatible with [ERC2771Context from OpenZeppelin](https://docs.openzeppelin.com/contracts/4.x/api/metatx#ERC2771Context).
+
+### Community.sol (569 sloc each)
+
+Contains all project publication and lender funding logic. Lenders fund project contracts through Community.sol, and Builders repay lenders through Community.sol as well.
+
+- It uses [Reentrancy Guard from OpenZeppelin](https://docs.openzeppelin.com/contracts/4.x/api/security#ReentrancyGuard).
+- It inherits [OpenZeppelin Pausable](https://docs.openzeppelin.com/contracts/4.x/api/security#Pausable) base class.
+- It uses [SafeERC20Upgradeable from OpenZeppelin](https://docs.openzeppelin.com/contracts/4.x/api/token/erc20#SafeERC20) for all debt token transfers.
+- It uses our [Signature decoder library](/contracts/libraries/SignatureDecoder.sol).
+- ERC2771 compatible with [ERC2771Context from OpenZeppelin](https://docs.openzeppelin.com/contracts/4.x/api/metatx#ERC2771Context).
+
+### Dispute.sol (144 sloc each)
+
+In the event that a contractor (general or sub) does not get their funds and should have received them, or if there is negligence or malfeasance in the relationship between a builder and lender, participants permissioned in the project have the ability to raise a dispute that HomeFi's admins (in our case Rigor) are able to arbitrate to make sure funds arrive in the correct user's wallet.
+
+- It uses [Reentrancy Guard from OpenZeppelin](https://docs.openzeppelin.com/contracts/4.x/api/security#ReentrancyGuard).
+- It uses our [Signature decoder library](/contracts/libraries/SignatureDecoder.sol).
+- ERC2771 compatible with [ERC2771Context from OpenZeppelin](https://docs.openzeppelin.com/contracts/4.x/api/metatx#ERC2771Context).
+
+### DebtToken.sol (55 sloc each)
+
+Used to wrap Ether, USDC, or Dai and collateralize a given project. hTokens are given to lenders in the Community.sol contract as a receipt to track their lending into the project. On an builder's repayment of a project, hTokens are instantly destroyed, and the underlying collateral is returned + interest for the loan duration.
+
+- It inherits [OpenZeppelin ERC20](https://docs.openzeppelin.com/contracts/4.x/api/token/erc20) base class. Note that transfer are disabled and mint and burn are only available to the community contract.
+
+### Tasks.sol (86 sloc each)
+
+Internal library used in Project. Contains functions specific to a task actions and lifecycle.
+
+### SignatureDecoder.sol (50 sloc each)
+
+Decodes signatures that are encoded as bytes.
+
+## Interest calculation
+
+Interest on a loan are calculated on the principal only and doesn't include interest on the accrued interest.
+
+When a repayment occurs we first repay the interest and if their is money left the principal is repaid. Afterwards the interest will be calculated on the remaining principal.
+
+Here is some examples on a [spreadsheet](https://docs.google.com/spreadsheets/d/13426xFRQf_akchTzD0426N5AYS6gWqLWfaPeCx1xPbk/edit#gid=971639909).
+
+## Getting started
+
+- Clone this repository
+
+```
+git clone <repository-url>
+```
+
+- Install dependencies with [yarn](https://classic.yarnpkg.com/en/)
+
+`yarn`
+
+- Create .env file (you can copy ".sample.env")
+
+```
+ACCOUNT_PRIVATE_KEY=<private key of your account>
+INFURA=<infura key for your account>
+ETHERSCAN_API_KEY=<key for etherscan account>
+COINMARKETCAP_API_KEY=<key for coinmarketcap apis>
+```
+
+## Deployments
+
+Latest contract addresses can be found under "deployments/\<network\>.json"
+
+## Deployment Steps
+
+- Run the following command to deploy smart contracts (for local)
+
+`yarn deploy-local`
+
+- Run the following command to deploy smart contracts (for rinkeby)
+
+`yarn deploy-rinkeby`
+
+## Build contracts
+
+- to compile run
+
+`yarn compile`
+
+## Run tests
+
+- to run tests
+
+`yarn test`
+
+## Run test coverage
+
+- to test coverage
+
+`yarn coverage`
+
+# Upgradability
+
+## HomeFIProxy
+
+HomeFiProxy contract stores the proxies for **HomeFi**, **Community**, **Disputes**,
+**ProjectFactory**, and all the three **DebtTokens**. These proxies' implementation can be upgraded individually. Only the `admin` can upgrade implementations.
+All proxies are stored in an array inside HomeFiProxy with a bytes2 name associated to them.
+|Contract Proxy|Bytes2 Name|
+|---|---|
+|HomeFi|`HF`|
+|Community|`CN`|
+|Disputes|`DP`|
+|ProjectFactory|`PF`|
+|Native Currency Debt Token|`DA`|
+|Token Currency 1 Debt Token|`US`|
+|Token Currency 2 Debt Token|`NT`|
+
+### Steps to upgrade Proxy
+
+> This is valid for all HomeFi proxies- HomeFi, Community, Disputes, ProjectFactory, and DeptTokens.
+
+1. Add `virtual` modifier to all the functions of old implementation(V1) that are needed to be upgraded.
+2. Make the new implementation(V2) inherit V1.
+3. Rules:
+   - Add new variable and functions normally
+   - Use `override` modifier when overriding a V1 `function` or `modifier`
+   - Cannot override or modify an `event`
+4. Test the V2 contracts plus regression the V2 implementation with V1 tests. To make this process easier, paste V2 implementation in ./contract/mocks/`ContractName`V2Mock.sol and its tests inside ./test/utils/`contractName`UpgradabilityTests.ts and simply run the `Upgradability.ts` test.
+5. Before upgrading on production(xDai), deploy upgrades development testnets(rinkeby) and test.
+6. Deploy upgrades on production(xDai) and test.
+
+### Upgrade Proxy Using script
+
+1. Save the new proxy implementation according to the step above.
+2. Run `yarn compile` to compile all contracts, including the new implementation.
+3. Deploy the new implementation, possibly by creating a new script, and save its address.
+4. In the `./scripts/upgrade.ts` file, update the following variable accordingly to your deployment:
+   - `homeFiProxyAddress`: address of homeFiProxy
+   - `proxyBytes2Name`: name of the proxy to upgrade. For ex: `PF` for `ProjectFactor`. Refer `./contracts/HomeFiProxy.sol` for proxies and there name.
+   - `newImplementationName`: address of the underlying implementation. For ex: address of new `ProjectFactory` contract.
+   - `taskLibraryAddress`: only required when upgrading `ProjectFactory` proxy. Address of `TaskLibrary` that is linked to `Project` contract.
+5. Run the `upgrade` script,
+   ```
+   yarn hardhat run scripts/upgrade.ts --network <your preferred network>
+   ```
+6. The `upgrade` script will automatically run the `tests` if using the `hardhat` network.
+   > Look at various tested V2 mocks inside `./contract/mocks`
+
+### ProjectFactory and Project
+
+ProjectFactory proxy upgrade is mostly required to upgrade the underlying `Project` contract implementation. To make this upgrade, the new implementation of `ProjectFactory` must add a function to change the `underlying` address with new `Project` implementation. Potentially also updating the interface for `Project` contract. Check `./contracts/mock/ProjectFactoryV2Mock.sol` and `contracts/mock/ProjectV2Mock.sol` for reference.

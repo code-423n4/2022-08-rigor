@@ -1,0 +1,27 @@
+
+ 
+participant Builder
+participant Contractor
+participant SubContractor
+participant Project
+ 
+note over Builder, Project: Add task to Project
+note over Builder,Project:**Offchain** - Builder signs add task request
+note over Builder,Contractor:**Offchain** - Contractor signs add task request
+Builder-> Project: addTasks(bytes _data, bytes _signature)
+
+note over Builder, Project: assign task to subcontractor
+Contractor-> Project: inviteSC(uint256[] _index, address[] _to)
+SubContractor-> Project: acceptInviteSC(uint256[] _taskList) 
+
+note over Builder, Project: Builder funds the task 
+Builder-> Project: lendToProject(uint256 _cost)
+Project--> Project: mark task as funded
+
+note over Builder, Project: subcontractor mark the task as completed and ask for payment
+note over SubContractor,Project:**Offchain** - Sub-Contractor signs the request for task completion and payment.
+note over Contractor,Project:**Offchain** - Contractor signs the request for task completion and payment.
+note over Builder,Project:**Offchain** - Builder signs the request for task completion and payment.
+Builder-> Project: setComplete(bytes _data, bytes _signature)
+Project--> Project: mark task as complete
+Project--> SubContractor: transfer tokens
