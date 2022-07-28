@@ -57,3 +57,18 @@ Under "SPONSORS ADD INFO HERE" heading below, include the following:
 - Ends August 06, 2022 20:00 UTC
 
 [ ⭐️ SPONSORS ADD INFO HERE ]
+
+| Glossary| |
+|-------------------------------|------------------------------------------------------|
+| Community.sol | Contains all project publication and lender funding logic. Lenders fund project contracts through Community.sol, and Builders repay lenders through Community.sol as well. |
+| Dispute.sol | In the event that a contractor (general or sub) does not get their funds and should have received them, or if there is negligence or malfeasance in the relationship between a builder and lender, participants permissioned in the project have the ability to raise a dispute that HomeFi's admins (in our case Rigor) are able to arbitrate to make sure funds arrive in the correct user's wallet. |
+|DebtToken.sol|Used to wrap Ether, USDC, or Dai and collateralize a given project. hTokens are given to lenders in the Community.sol contract as a receipt to track their lending into the project. On an builder's repayment of a project, hTokens are instantly destroyed, and the underlying collateral is returned + interest for the loan duration.|
+| HomeFi.sol | The main entry point for the HomeFi Smart Contract ecosystem. Administrative actions are executed through this contract; new project contracts are created from this contract with accompanying ERC721 for each project. |
+|HomeFiProxy.sol|Upgradability proxy as documented by [OpenZeppelin](https://docs.openzeppelin.com/upgrades-plugins/1.x/proxies)|
+|Project.sol| Child contract deployed from HomeFi.sol, Project.sol contains the primary logic around construction project management. Onboarding contractors, fund escrow, and completion tracking are all managed here. Significant multi-signature and meta-transaction functionality is included here.|
+|ProjectFactory.sol| Technically separate from HomeFi.sol but can only be accessed by HomeFi.sol. Uses [clones](https://docs.openzeppelin.com/contracts/4.x/api/proxy#Clones") to achieve the minimal use of gas when deploying new Project contracts.|
+
+
+## Protocol Overview
+HomeFi protocol is a generalized protocol that provides public, permissionless, decentralized financial infrastructure for home finance. Our mission is to make home finance open, accessible and positive-sum for everyone on earth.
+
