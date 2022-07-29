@@ -67,7 +67,7 @@ Of course depending on the step different signatures will be required to execute
 5. `Builder` is invited to be a member of that new community by the `community owner`. They both have to sign data including the community ID, the new member address and a message hash (the message can be anything). The data and the signatures in the right order is required to call `addMember(bytes _data, bytes _signatures)` on the community contract. It will add the builder as a community member allowing its projects to be published in the community.
 
 6. Builder publishes his project to the community. It requires signing data that
-   includes community ID, apr, publishing fee and nonce . Both `builder` and `community owner` have to sign the data. The signatures and data are used to call `publishProject(bytes _data, bytes _signature)` .
+   includes community ID, APR, publishing fee and nonce . Both `builder` and `community owner` have to sign the data. The signatures and data are used to call `publishProject(bytes _data, bytes _signature)` .
    Note that you cannot submit a project with no total budget. Therefore it requires at least one task with a budget > 0.
 
 7. **Optional** the builder can adjust the amount of the loan requested to a community by calling `toggleLendingNeeded(uint256 _communityID, address _project, uint256 _lendingNeeded)`
@@ -100,15 +100,42 @@ Of course depending on the step different signatures will be required to execute
 
 All the contracts in this section are to be reviewed. Any contracts not in this list are to be ignored for this contest. A further breakdown of [contracts and their dependencies can be found here](https://docs.google.com/spreadsheets/d/1zrnn5i7L8PpICnjI-C7KcE_ITCVpiNnGbMLpFcT6gEU/edit#gid=0)
 
-| Overview           |                                                                                                                                                                                                                                                                                                                                                                                                        |
-| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Community.sol      | Contains all project publication and lender funding logic. Lenders fund project contracts through Community.sol, and Builders repay lenders through Community.sol as well.                                                                                                                                                                                                                             |
-| Dispute.sol        | In the event that a contractor (general or sub) does not get their funds and should have received them, or if there is negligence or malfeasance in the relationship between a builder and lender, participants permissioned in the project have the ability to raise a dispute that HomeFi's admins (in our case Rigor) are able to arbitrate to make sure funds arrive in the correct user's wallet. |
-| DebtToken.sol      | Used to wrap Ether, USDC, or Dai and collateralize a given project. hTokens are given to lenders in the Community.sol contract as a receipt to track their lending into the project. On an builder's repayment of a project, hTokens are instantly destroyed, and the underlying collateral is returned + interest for the loan duration.                                                              |
-| HomeFi.sol         | The main entry point for the HomeFi Smart Contract ecosystem. Administrative actions are executed through this contract; new project contracts are created from this contract with accompanying ERC721 for each project.                                                                                                                                                                               |
-| HomeFiProxy.sol    | Upgradability proxy as documented by [OpenZeppelin](https://docs.openzeppelin.com/upgrades-plugins/1.x/proxies)                                                                                                                                                                                                                                                                                        |
-| Project.sol        | Child contract deployed from HomeFi.sol, Project.sol contains the primary logic around construction project management. Onboarding contractors, fund escrow, and completion tracking are all managed here. Significant multi-signature and meta-transaction functionality is included here.                                                                                                            |
-| ProjectFactory.sol | Technically separate from HomeFi.sol but can only be accessed by HomeFi.sol. Uses [clones](https://docs.openzeppelin.com/contracts/4.x/api/proxy#Clones") to achieve the minimal use of gas when deploying new Project contracts.                                                                                                                                                                      |
+### Files in scope
+|File|nSLOC|SLOC|Lines|
+|:-|:-:|:-:|:-:|
+|_Contracts (7)_|
+|[contracts/DebtToken.sol](https://github.com/code-423n4/2022-08-rigor/blob/a2bc200561598f76a7adbf7f7295a8e4a3c18920/contracts/DebtToken.sol)|35|55|106|
+|[contracts/ProjectFactory.sol](https://github.com/code-423n4/2022-08-rigor/blob/a2bc200561598f76a7adbf7f7295a8e4a3c18920/contracts/ProjectFactory.sol)|37|56|106|
+|[contracts/HomeFiProxy.sol](https://github.com/code-423n4/2022-08-rigor/blob/a2bc200561598f76a7adbf7f7295a8e4a3c18920/contracts/HomeFiProxy.sol)|70|93|231|
+|[contracts/Disputes.sol](https://github.com/code-423n4/2022-08-rigor/blob/a2bc200561598f76a7adbf7f7295a8e4a3c18920/contracts/Disputes.sol)|112|144|273|
+|[contracts/HomeFi.sol](https://github.com/code-423n4/2022-08-rigor/blob/a2bc200561598f76a7adbf7f7295a8e4a3c18920/contracts/HomeFi.sol)|117|197|323|
+|[contracts/Project.sol](https://github.com/code-423n4/2022-08-rigor/blob/a2bc200561598f76a7adbf7f7295a8e4a3c18920/contracts/Project.sol)|406|474|911|
+|[contracts/Community.sol](https://github.com/code-423n4/2022-08-rigor/blob/a2bc200561598f76a7adbf7f7295a8e4a3c18920/contracts/Community.sol)|422|569|919|
+|_Libraries (2)_|
+|[contracts/libraries/SignatureDecoder.sol](https://github.com/code-423n4/2022-08-rigor/blob/a2bc200561598f76a7adbf7f7295a8e4a3c18920/contracts/libraries/SignatureDecoder.sol)|34|50|86|
+|[contracts/libraries/Tasks.sol](https://github.com/code-423n4/2022-08-rigor/blob/a2bc200561598f76a7adbf7f7295a8e4a3c18920/contracts/libraries/Tasks.sol)|68|86|198|
+|Total (over 9 files):| 1301 | 1724 | 3153 |
+
+
+### Direct parent contracts of in-scope contracts (not in scope)
+Interfaces and abstracts should be added to scope - wardens will have to review them regardless, and will ask about them
+|File|nSLOC|SLOC|Lines|
+|:-|:-:|:-:|:-:|
+|_Interfaces (6)_|
+|[contracts/interfaces/IDebtToken.sol](https://github.com/code-423n4/2022-08-rigor/blob/a2bc200561598f76a7adbf7f7295a8e4a3c18920/contracts/interfaces/IDebtToken.sol)|8|13|50|
+|[contracts/interfaces/IProjectFactory.sol](https://github.com/code-423n4/2022-08-rigor/blob/a2bc200561598f76a7adbf7f7295a8e4a3c18920/contracts/interfaces/IProjectFactory.sol)|9|14|58|
+|[contracts/interfaces/IHomeFi.sol](https://github.com/code-423n4/2022-08-rigor/blob/a2bc200561598f76a7adbf7f7295a8e4a3c18920/contracts/interfaces/IHomeFi.sol)|41|64|206|
+|[contracts/interfaces/IDisputes.sol](https://github.com/code-423n4/2022-08-rigor/blob/a2bc200561598f76a7adbf7f7295a8e4a3c18920/contracts/interfaces/IDisputes.sol)|45|68|160|
+|[contracts/interfaces/IProject.sol](https://github.com/code-423n4/2022-08-rigor/blob/a2bc200561598f76a7adbf7f7295a8e4a3c18920/contracts/interfaces/IProject.sol)|57|87|331|
+|[contracts/interfaces/ICommunity.sol](https://github.com/code-423n4/2022-08-rigor/blob/a2bc200561598f76a7adbf7f7295a8e4a3c18920/contracts/interfaces/ICommunity.sol)|114|175|440|
+|Total (over 6 files):| 274 | 421 | 1245 |
+
+### Other contracts directly imported by in-scope contracts (not in scope)
+None
+
+
+### All other source contracts (not in scope)
+None
 
 ### HomeFiProxy.sol (93 sloc each)
 
@@ -148,7 +175,7 @@ Contains all project publication and lender funding logic. Lenders fund project 
 - It uses our [Signature decoder library](/contracts/libraries/SignatureDecoder.sol).
 - ERC2771 compatible with [ERC2771Context from OpenZeppelin](https://docs.openzeppelin.com/contracts/4.x/api/metatx#ERC2771Context).
 
-### Dispute.sol (144 sloc each)
+### Disputes.sol (144 sloc each)
 
 In the event that a contractor (general or sub) does not get their funds and should have received them, or if there is negligence or malfeasance in the relationship between a builder and lender, participants permissioned in the project have the ability to raise a dispute that HomeFi's admins (in our case Rigor) are able to arbitrate to make sure funds arrive in the correct user's wallet.
 
@@ -170,6 +197,38 @@ Internal library used in Project. Contains functions specific to a task actions 
 
 Decodes signatures that are encoded as bytes.
 
+## External imports
+* **@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol**
+  * [contracts/HomeFiProxy.sol](https://github.com/code-423n4/2022-08-rigor/blob/a2bc200561598f76a7adbf7f7295a8e4a3c18920/contracts/HomeFiProxy.sol)
+* **@openzeppelin/contracts-upgradeable/metatx/ERC2771ContextUpgradeable.sol**
+  * [contracts/Community.sol](https://github.com/code-423n4/2022-08-rigor/blob/a2bc200561598f76a7adbf7f7295a8e4a3c18920/contracts/Community.sol)
+  * [contracts/Disputes.sol](https://github.com/code-423n4/2022-08-rigor/blob/a2bc200561598f76a7adbf7f7295a8e4a3c18920/contracts/Disputes.sol)
+  * [contracts/HomeFi.sol](https://github.com/code-423n4/2022-08-rigor/blob/a2bc200561598f76a7adbf7f7295a8e4a3c18920/contracts/HomeFi.sol)
+  * [contracts/Project.sol](https://github.com/code-423n4/2022-08-rigor/blob/a2bc200561598f76a7adbf7f7295a8e4a3c18920/contracts/Project.sol)
+  * [contracts/ProjectFactory.sol](https://github.com/code-423n4/2022-08-rigor/blob/a2bc200561598f76a7adbf7f7295a8e4a3c18920/contracts/ProjectFactory.sol)
+* **@openzeppelin/contracts-upgradeable/proxy/ClonesUpgradeable.sol**
+  * [contracts/ProjectFactory.sol](https://github.com/code-423n4/2022-08-rigor/blob/a2bc200561598f76a7adbf7f7295a8e4a3c18920/contracts/ProjectFactory.sol)
+* **@openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol**
+  * [contracts/Community.sol](https://github.com/code-423n4/2022-08-rigor/blob/a2bc200561598f76a7adbf7f7295a8e4a3c18920/contracts/Community.sol)
+* **@openzeppelin/contracts-upgradeable/security/ReentrancyGuardUpgradeable.sol**
+  * [contracts/Community.sol](https://github.com/code-423n4/2022-08-rigor/blob/a2bc200561598f76a7adbf7f7295a8e4a3c18920/contracts/Community.sol)
+  * [contracts/Disputes.sol](https://github.com/code-423n4/2022-08-rigor/blob/a2bc200561598f76a7adbf7f7295a8e4a3c18920/contracts/Disputes.sol)
+  * [contracts/HomeFi.sol](https://github.com/code-423n4/2022-08-rigor/blob/a2bc200561598f76a7adbf7f7295a8e4a3c18920/contracts/HomeFi.sol)
+  * [contracts/Project.sol](https://github.com/code-423n4/2022-08-rigor/blob/a2bc200561598f76a7adbf7f7295a8e4a3c18920/contracts/Project.sol)
+* **@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol**
+  * [contracts/DebtToken.sol](https://github.com/code-423n4/2022-08-rigor/blob/a2bc200561598f76a7adbf7f7295a8e4a3c18920/contracts/DebtToken.sol)
+* **@openzeppelin/contracts-upgradeable/token/ERC20/IERC20Upgradeable.sol**
+  * ~~[contracts/interfaces/IDebtToken.sol](https://github.com/code-423n4/2022-08-rigor/blob/a2bc200561598f76a7adbf7f7295a8e4a3c18920/contracts/interfaces/IDebtToken.sol)~~
+* **@openzeppelin/contracts-upgradeable/token/ERC20/utils/SafeERC20Upgradeable.sol**
+  * [contracts/Community.sol](https://github.com/code-423n4/2022-08-rigor/blob/a2bc200561598f76a7adbf7f7295a8e4a3c18920/contracts/Community.sol)
+  * [contracts/Project.sol](https://github.com/code-423n4/2022-08-rigor/blob/a2bc200561598f76a7adbf7f7295a8e4a3c18920/contracts/Project.sol)
+* **@openzeppelin/contracts-upgradeable/token/ERC721/extensions/ERC721URIStorageUpgradeable.sol**
+  * [contracts/HomeFi.sol](https://github.com/code-423n4/2022-08-rigor/blob/a2bc200561598f76a7adbf7f7295a8e4a3c18920/contracts/HomeFi.sol)
+* **@openzeppelin/contracts/proxy/transparent/ProxyAdmin.sol**
+  * [contracts/HomeFiProxy.sol](https://github.com/code-423n4/2022-08-rigor/blob/a2bc200561598f76a7adbf7f7295a8e4a3c18920/contracts/HomeFiProxy.sol)
+* **@openzeppelin/contracts/proxy/transparent/TransparentUpgradeableProxy.sol**
+  * [contracts/HomeFiProxy.sol](https://github.com/code-423n4/2022-08-rigor/blob/a2bc200561598f76a7adbf7f7295a8e4a3c18920/contracts/HomeFiProxy.sol)
+
 ## Interest calculation
 
 Interest on a loan are calculated on the principal only and doesn't include interest on the accrued interest.
@@ -182,36 +241,22 @@ Here is some examples on a [spreadsheet](https://docs.google.com/spreadsheets/d/
 
 - Clone this repository
 
-```
-git clone <repository-url>
+```bash
+git clone https://github.com/code-423n4/2022-08-rigor.git
+cd 2022-08-rigor
 ```
 
 - Install dependencies with [yarn](https://classic.yarnpkg.com/en/)
 
-`yarn`
+```bash
+yarn
+````
 
 - Create .env file (you can copy ".sample.env")
 
+```bash
+cp .sample.env .env
 ```
-ACCOUNT_PRIVATE_KEY=<private key of your account>
-INFURA=<infura key for your account>
-ETHERSCAN_API_KEY=<key for etherscan account>
-COINMARKETCAP_API_KEY=<key for coinmarketcap apis>
-```
-
-## Deployments
-
-Latest contract addresses can be found under "deployments/\<network\>.json"
-
-## Deployment Steps
-
-- Run the following command to deploy smart contracts (for local)
-
-`yarn deploy-local`
-
-- Run the following command to deploy smart contracts (for rinkeby)
-
-`yarn deploy-rinkeby`
 
 ## Build contracts
 
@@ -231,9 +276,23 @@ Latest contract addresses can be found under "deployments/\<network\>.json"
 
 `yarn coverage`
 
-# Upgradability
+## Gas reports
 
-## HomeFIProxy
+`REPORT_GAS=true yarn test`
+
+## Deployment Steps
+
+- Run the following command to deploy smart contracts (for local)
+
+`yarn deploy-local`
+
+- Run the following command to deploy smart contracts (for rinkeby)
+
+`yarn deploy-rinkeby`
+
+## Upgradability
+
+### HomeFIProxy
 
 HomeFiProxy contract stores the proxies for **HomeFi**, **Community**, **Disputes**,
 **ProjectFactory**, and all the three **DebtTokens**. These proxies' implementation can be upgraded individually. Only the `admin` can upgrade implementations.
@@ -282,6 +341,10 @@ All proxies are stored in an array inside HomeFiProxy with a bytes2 name associa
 ### ProjectFactory and Project
 
 ProjectFactory proxy upgrade is mostly required to upgrade the underlying `Project` contract implementation. To make this upgrade, the new implementation of `ProjectFactory` must add a function to change the `underlying` address with new `Project` implementation. Potentially also updating the interface for `Project` contract. Check `./contracts/mock/ProjectFactoryV2Mock.sol` and `contracts/mock/ProjectV2Mock.sol` for reference.
+
+## Deployments
+
+Latest contract addresses can be found under "deployments/\<network\>.json"
 
 
 ## Scoping details answers
