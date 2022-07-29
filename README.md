@@ -144,7 +144,7 @@ cp .sample.env .env
 
 ## Smart Contracts
 
-All the contracts in this section are to be reviewed. Any contracts not in this list are to be ignored for this contest. A further breakdown of [contracts and their dependencies can be found here](https://docs.google.com/spreadsheets/d/1zrnn5i7L8PpICnjI-C7KcE_ITCVpiNnGbMLpFcT6gEU/edit#gid=0)
+All the contracts in this section are to be reviewed. A further breakdown of [contracts and their dependencies can be found here](https://docs.google.com/spreadsheets/d/1zrnn5i7L8PpICnjI-C7KcE_ITCVpiNnGbMLpFcT6gEU/edit#gid=0)
 
 ### Files in scope
 
@@ -165,7 +165,6 @@ All the contracts in this section are to be reviewed. Any contracts not in this 
 
 ### Direct parent contracts of in-scope contracts (not in scope)
 
-Interfaces and abstracts should be added to scope - wardens will have to review them regardless, and will ask about them
 |File|nSLOC|SLOC|Lines|
 |:-|:-:|:-:|:-:|
 |_Interfaces (6)_|
