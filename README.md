@@ -130,14 +130,6 @@ All the contracts in this section are to be reviewed. Any contracts not in this 
 | [contracts/interfaces/ICommunity.sol](https://github.com/code-423n4/2022-08-rigor/blob/a2bc200561598f76a7adbf7f7295a8e4a3c18920/contracts/interfaces/ICommunity.sol)           |  114  | 175  |  440  |
 | Total (over 6 files):                                                                                                                                                          |  274  | 421  | 1245  |
 
-### Other contracts directly imported by in-scope contracts (not in scope)
-
-None
-
-### All other source contracts (not in scope)
-
-None
-
 ### HomeFiProxy.sol (93 sloc each)
 
 - Upgradability proxy as documented by [OpenZeppelin](https://docs.openzeppelin.com/upgrades-plugins/1.x/proxies)
