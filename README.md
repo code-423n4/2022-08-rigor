@@ -211,7 +211,7 @@ Contains all project publication and lender funding logic. Lenders fund project 
 - It uses [Reentrancy Guard from OpenZeppelin](https://docs.openzeppelin.com/contracts/4.x/api/security#ReentrancyGuard).
 - It inherits [OpenZeppelin Pausable](https://docs.openzeppelin.com/contracts/4.x/api/security#Pausable) base class.
 - It uses [SafeERC20Upgradeable from OpenZeppelin](https://docs.openzeppelin.com/contracts/4.x/api/token/erc20#SafeERC20) for all debt token transfers.
-- It uses our [Signature decoder library](/contracts/libraries/SignatureDecoder.sol).
+- It uses our [Signature decoder library](https://github.com/code-423n4/2022-08-rigor/blob/main/contracts/libraries/SignatureDecoder.sol).
 - ERC2771 compatible with [ERC2771Context from OpenZeppelin](https://docs.openzeppelin.com/contracts/4.x/api/metatx#ERC2771Context).
 
 ### Disputes.sol (144 sloc each)
