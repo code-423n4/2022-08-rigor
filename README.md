@@ -40,7 +40,7 @@ HomeFi protocol is a generalized protocol that provides public, permission less,
 
 The Protocol is divided into modules with different areas of concerns.
 
-![HomeFi relationship between entities](doc/High%20Level%20Archi.png)
+![HomeFi relationship between entities](https://github.com/code-423n4/2022-08-rigor/blob/main/doc/High%20Level%20Archi.png)
 
 All modules are behind proxies. `HomeFi Proxy` is responsible for initializing all the modules contract in the correct sequential order and generate upgradable proxy for them.
 
@@ -55,14 +55,14 @@ Of course depending on the step different signatures will be required to execute
 
 ## From project creation to community lending to the project
 
-1. First a `builder` creates a `project` by calling the `createProject()` function on [HomeFi](contracts/HomeFi.sol).
-   It will trigger the deployment of a new [project](contracts/Project.sol) thanks to the [project factory](contracts/ProjectFactory.sol).
+1. First a `builder` creates a `project` by calling the `createProject()` function on [HomeFi](https://github.com/code-423n4/2022-08-rigor/blob/main/contracts/HomeFi.sol).
+   It will trigger the deployment of a new [project](contracts/Project.sol) thanks to the [project factory](https://github.com/code-423n4/2022-08-rigor/blob/main/contracts/ProjectFactory.sol).
 
 2. `Builder` invites a `general contractor`. It requires signing data that includes the `contractor` address and the `project` address by both the `contractor` and the `builder`. The signatures and data are used to call `inviteContractor(bytes _data, bytes _signature)`
 
-3. Builder add [tasks](contracts/libraries/Tasks.sol) to the project. It requires signing data that includes tasks costs, a hash (task metadata), tasks count and the `project` address. Both `builder` and `contractor` have to sign the data. The signatures and data are used to call `addTasks(bytes _data, bytes _signature)`
+3. Builder add [tasks](https://github.com/code-423n4/2022-08-rigor/blob/main/contracts/libraries/Tasks.sol) to the project. It requires signing data that includes tasks costs, a hash (task metadata), tasks count and the `project` address. Both `builder` and `contractor` have to sign the data. The signatures and data are used to call `addTasks(bytes _data, bytes _signature)`
 
-4. Community Owner creates a [community](contracts/Community.sol) by calling `createCommunity(bytes _hash, address _currency)` on the community contract where all the communities are registered. It requires the address of the currency used by the community for lending. The currency must be register in [HomeFi](contracts/HomeFi.sol) to be valid. It also requires a hash (community metadata).
+4. Community Owner creates a [community](https://github.com/code-423n4/2022-08-rigor/blob/main/contracts/Community.sol) by calling `createCommunity(bytes _hash, address _currency)` on the community contract where all the communities are registered. It requires the address of the currency used by the community for lending. The currency must be register in [HomeFi](contracts/HomeFi.sol) to be valid. It also requires a hash (community metadata).
 
 5. `Builder` is invited to be a member of that new community by the `community owner`. They both have to sign data including the community ID, the new member address and a message hash (the message can be anything). The data and the signatures in the right order is required to call `addMember(bytes _data, bytes _signatures)` on the community contract. It will add the builder as a community member allowing its projects to be published in the community.
 
@@ -74,11 +74,11 @@ Of course depending on the step different signatures will be required to execute
 
 8. `Community owner` lends fund to the published project by calling `lendToProject(uint256 _cost)`. This call will update accrued interest, mint debt token for the community owner and transfer tokens to the project contract address.
 
-![Community lend to project](doc/lend%20to%20project.png)
+![Community lend to project](https://github.com/code-423n4/2022-08-rigor/blob/main/doc/lend%20to%20project.png)
 
 ## Tasks completion and payment
 
-1. Builder add [tasks](contracts/libraries/Tasks.sol) to the project. It requires signing data that includes tasks costs, a hash (task metadata), tasks count and the `project` address. Both `builder` and `contractor` have to sign the data. The signatures and data are used to call `addTasks(bytes _data, bytes _signature)`
+1. Builder add [tasks](https://github.com/code-423n4/2022-08-rigor/blob/main/contracts/libraries/Tasks.sol) to the project. It requires signing data that includes tasks costs, a hash (task metadata), tasks count and the `project` address. Both `builder` and `contractor` have to sign the data. The signatures and data are used to call `addTasks(bytes _data, bytes _signature)`
 
 2. `Contractor` assign tasks to `subcontractor` by calling `inviteSC(uint256[] _index, address[] _to)` providing tasks ID and subcontractor address. Subcontractor accepts by calling `acceptInviteSC(uint256[] _taskList)`.
 
@@ -86,7 +86,7 @@ Of course depending on the step different signatures will be required to execute
 
 4. Task is completed by calling `setComplete(bytes _data, bytes _signature)`. It requires signing data that includes task ID and the `project` address. `builder`, `contractor` and `subcontractor` have to sign the data. If there is no ongoing dispute about that project, task status is updated and payment is made. Indeed tokens are transferred from the project to the subcontractor's address.
 
-![Task creation and completion](doc/task%20flow.png)
+![Task creation and completion](https://github.com/code-423n4/2022-08-rigor/blob/main/doc/task%20flow.png)
 
 ## Lending repayment
 
@@ -94,7 +94,7 @@ Of course depending on the step different signatures will be required to execute
 
 - If for instance an offchain repayment occurred, `community owner` can trigger `reduceDebt(uint256 _communityID, address _project, uint256 _repayAmount, bytes _details)`. It will also calculate the owned interest update the remaining debt and burn `community owner`'s debt token. Note that no token transfer between `builder` and `lender` will happen in that case.
 
-![Builder repays Community](doc/builder%20repays%20community.png)
+![Builder repays Community](https://github.com/code-423n4/2022-08-rigor/blob/main/doc/builder%20repays%20community.png)
 
 ## Smart Contracts
 
@@ -155,8 +155,8 @@ Child contract deployed from HomeFi.sol, Project.sol contains the primary logic 
 
 - It uses [Reentrancy Guard from OpenZeppelin](https://docs.openzeppelin.com/contracts/4.x/api/security#ReentrancyGuard).
 - It uses [SafeERC20Upgradeable from OpenZeppelin](https://docs.openzeppelin.com/contracts/4.x/api/token/erc20#SafeERC20) for all debt token transfers.
-- As we are heavily using signatures as params for sensitive operations. We created a [Signature decoder library](/contracts/libraries/SignatureDecoder.sol) that is able to recover multiple signatures compacted in a bytes format as well as recover the address who signed the message.
-- Tasks are a big part of a project. We created a [task library](/contracts/libraries/Tasks.sol) for all task related operations.
+- As we are heavily using signatures as params for sensitive operations. We created a [Signature decoder library](https://github.com/code-423n4/2022-08-rigor/blob/main/contracts/libraries/SignatureDecoder.sol) that is able to recover multiple signatures compacted in a bytes format as well as recover the address who signed the message.
+- Tasks are a big part of a project. We created a [task library](https://github.com/code-423n4/2022-08-rigor/blob/main/contracts/libraries/Tasks.sol) for all task related operations.
 - ERC2771 compatible with [ERC2771Context from OpenZeppelin](https://docs.openzeppelin.com/contracts/4.x/api/metatx#ERC2771Context).
 
 ### ProjectFactory.sol (56 sloc each)
@@ -181,7 +181,7 @@ Contains all project publication and lender funding logic. Lenders fund project 
 In the event that a contractor (general or sub) does not get their funds and should have received them, or if there is negligence or malfeasance in the relationship between a builder and lender, participants permissioned in the project have the ability to raise a dispute that HomeFi's admins (in our case Rigor) are able to arbitrate to make sure funds arrive in the correct user's wallet.
 
 - It uses [Reentrancy Guard from OpenZeppelin](https://docs.openzeppelin.com/contracts/4.x/api/security#ReentrancyGuard).
-- It uses our [Signature decoder library](/contracts/libraries/SignatureDecoder.sol).
+- It uses our [Signature decoder library](https://github.com/code-423n4/2022-08-rigor/blob/main/contracts/libraries/SignatureDecoder.sol).
 - ERC2771 compatible with [ERC2771Context from OpenZeppelin](https://docs.openzeppelin.com/contracts/4.x/api/metatx#ERC2771Context).
 
 ### DebtToken.sol (55 sloc each)
