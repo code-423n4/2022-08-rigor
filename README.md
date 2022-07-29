@@ -61,13 +61,13 @@ Of course depending on the step different signatures will be required to execute
 ## From project creation to community lending to the project
 
 1. First a `builder` creates a `project` by calling the `createProject()` function on [HomeFi](https://github.com/code-423n4/2022-08-rigor/blob/main/contracts/HomeFi.sol).
-   It will trigger the deployment of a new [project](contracts/Project.sol) thanks to the [project factory](https://github.com/code-423n4/2022-08-rigor/blob/main/contracts/ProjectFactory.sol).
+   It will trigger the deployment of a new [project](https://github.com/code-423n4/2022-08-rigor/blob/main/contracts/Project.sol) thanks to the [project factory](https://github.com/code-423n4/2022-08-rigor/blob/main/contracts/ProjectFactory.sol).
 
 2. `Builder` invites a `general contractor`. It requires signing data that includes the `contractor` address and the `project` address by both the `contractor` and the `builder`. The signatures and data are used to call `inviteContractor(bytes _data, bytes _signature)`
 
 3. Builder add [tasks](https://github.com/code-423n4/2022-08-rigor/blob/main/contracts/libraries/Tasks.sol) to the project. It requires signing data that includes tasks costs, a hash (task metadata), tasks count and the `project` address. Both `builder` and `contractor` have to sign the data. The signatures and data are used to call `addTasks(bytes _data, bytes _signature)`
 
-4. Community Owner creates a [community](https://github.com/code-423n4/2022-08-rigor/blob/main/contracts/Community.sol) by calling `createCommunity(bytes _hash, address _currency)` on the community contract where all the communities are registered. It requires the address of the currency used by the community for lending. The currency must be register in [HomeFi](contracts/HomeFi.sol) to be valid. It also requires a hash (community metadata).
+4. Community Owner creates a [community](https://github.com/code-423n4/2022-08-rigor/blob/main/contracts/Community.sol) by calling `createCommunity(bytes _hash, address _currency)` on the community contract where all the communities are registered. It requires the address of the currency used by the community for lending. The currency must be register in [HomeFi](https://github.com/code-423n4/2022-08-rigor/blob/main/contracts/HomeFi.sol) to be valid. It also requires a hash (community metadata).
 
 5. `Builder` is invited to be a member of that new community by the `community owner`. They both have to sign data including the community ID, the new member address and a message hash (the message can be anything). The data and the signatures in the right order is required to call `addMember(bytes _data, bytes _signatures)` on the community contract. It will add the builder as a community member allowing its projects to be published in the community.
 
