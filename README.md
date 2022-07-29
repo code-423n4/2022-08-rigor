@@ -282,3 +282,80 @@ All proxies are stored in an array inside HomeFiProxy with a bytes2 name associa
 ### ProjectFactory and Project
 
 ProjectFactory proxy upgrade is mostly required to upgrade the underlying `Project` contract implementation. To make this upgrade, the new implementation of `ProjectFactory` must add a function to change the `underlying` address with new `Project` implementation. Potentially also updating the interface for `Project` contract. Check `./contracts/mock/ProjectFactoryV2Mock.sol` and `contracts/mock/ProjectV2Mock.sol` for reference.
+
+
+## Scoping details answers
+```md
+
+### Do you have a link to the repo that the contest will cover?
+
+[https://github.com/RigorHQ/Rigor-ProtocolV2](https://github.com/RigorHQ/Rigor-ProtocolV2)
+
+### How many (non-library) contracts are in the scope?
+
+7
+
+### Total sLoC in these contracts?
+
+2105
+
+### How many library dependencies?
+
+2
+
+### How many separate interfaces and struct definitions are there for the contracts within scope?
+
+7 interfaces 4 structs
+
+### Does most of your code generally use composition or inheritance?
+
+We are mostly using Inheritance for storing the basic schema of our contracts. Storing external functions params, returns, events, structs, and enums, without any implementation.
+
+### How many external calls?
+
+Two. Calling transfer() and transferFrom() on supported tokens. As of now, we are supporting USDC, WXDAI, and WETH.
+
+### Is there a need to understand a separate part of the codebase / get context in order to audit this part of the protocol?
+
+false
+
+### Does it use an oracle?
+
+false
+
+### Does the token conform to the ERC20 standard?
+
+We have a debt token that is a modified ERC20
+
+### Are there any novel or unique curve logic or mathematical models?
+
+No
+
+### Does it use a timelock function?
+
+No
+
+### Is it an NFT?
+
+We use NFTs
+
+### Does it have an AMM?
+
+No
+
+### Is it a fork of a popular project?
+
+false
+
+### Does it use rollups?
+
+false
+
+### Is it multi-chain?
+
+false
+
+### Does it use a side-chain?
+
+false
+```
