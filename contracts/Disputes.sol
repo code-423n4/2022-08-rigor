@@ -10,7 +10,7 @@ import {ContextUpgradeable, ERC2771ContextUpgradeable} from "@openzeppelin/contr
 import {SignatureDecoder} from "./libraries/SignatureDecoder.sol";
 
 /**
- * @title Dispute Contract for HomeFi v2.5.0
+ * @title Disputes Contract for HomeFi v2.5.0
 
  * @dev Module for raising disputes for arbitration within HomeFi projects
  */
@@ -36,20 +36,20 @@ contract Disputes is
 
     modifier nonZero(address _address) {
         // Revert if _address zero address (0x00)
-        require(_address != address(0), "Dispute::0 address");
+        require(_address != address(0), "Disputes::0 address");
         _;
     }
 
     modifier onlyAdmin() {
         // Revert if sender is not HomeFi admin
         // Only HomeFi admin can resolve dispute
-        require(homeFi.admin() == _msgSender(), "Dispute::!Admin");
+        require(homeFi.admin() == _msgSender(), "Disputes::!Admin");
         _;
     }
 
     modifier onlyProject() {
         // Revert if project not originated of HomeFi
-        require(homeFi.isProjectExist(_msgSender()), "Dispute::!Project");
+        require(homeFi.isProjectExist(_msgSender()), "Disputes::!Project");
         _;
     }
 

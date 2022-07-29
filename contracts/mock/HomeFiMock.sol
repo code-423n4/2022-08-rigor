@@ -25,7 +25,7 @@ contract HomeFiMock is
     address public override tokenCurrency3;
 
     IProjectFactory public override projectFactoryInstance;
-    address public override disputeContract;
+    address public override disputesContract;
     address public override communityContract;
 
     bool public override addrSet;
@@ -78,7 +78,7 @@ contract HomeFiMock is
     function setAddr(
         address _projectFactory,
         address _communityContract,
-        address _disputeContract,
+        address _disputesContract,
         address _hTokenCurrency1,
         address _hTokenCurrency2,
         address _hTokenCurrency3
@@ -88,7 +88,7 @@ contract HomeFiMock is
         onlyAdmin
         nonZero(_projectFactory)
         nonZero(_communityContract)
-        nonZero(_disputeContract)
+        nonZero(_disputesContract)
         nonZero(_hTokenCurrency1)
         nonZero(_hTokenCurrency2)
         nonZero(_hTokenCurrency3)
@@ -96,7 +96,7 @@ contract HomeFiMock is
         require(!addrSet, "HomeFi::Set");
         projectFactoryInstance = IProjectFactory(_projectFactory);
         communityContract = _communityContract;
-        disputeContract = _disputeContract;
+        disputesContract = _disputesContract;
         wrappedToken[tokenCurrency1] = _hTokenCurrency1;
         wrappedToken[tokenCurrency2] = _hTokenCurrency2;
         wrappedToken[tokenCurrency3] = _hTokenCurrency3;

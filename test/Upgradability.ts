@@ -415,7 +415,7 @@ setup().then(tests => {
       describe('Community Regression', () => {
         communityTests(tests[1]);
       });
-      describe('Dispute Regression', async () => {
+      describe('Disputes Regression', async () => {
         const projectV2Mock1Address = (
           await createProjectWithoutContractor(
             tests[1].homeFiContract,

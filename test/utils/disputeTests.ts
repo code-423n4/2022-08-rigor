@@ -37,7 +37,7 @@ export const disputeTests = async ({
     const disputeImplementation = await deploy<Disputes>('Disputes');
     await disputeImplementation.deployed();
     const tx = disputeImplementation.initialize(ethers.constants.AddressZero);
-    await expect(tx).to.be.revertedWith('Dispute::0 address');
+    await expect(tx).to.be.revertedWith('Disputes::0 address');
   });
 
   describe('Disputed addTasks()', async () => {
@@ -151,7 +151,7 @@ export const disputeTests = async ({
         .connect(signers[1])
         .resolveDispute(0, '0xe2d1', true);
       // expect resolve transaction to fail
-      await expect(tx).to.be.revertedWith('Dispute::!Admin');
+      await expect(tx).to.be.revertedWith('Disputes::!Admin');
       // expect no change to transaction state
       let taskCount = await project.taskCount();
       expect(taskCount).to.be.equal(1);
@@ -395,7 +395,7 @@ export const disputeTests = async ({
         .connect(signers[1])
         .resolveDispute(2, '0xe2d1', true);
       // expect resolve transaction to fail
-      await expect(tx).to.be.revertedWith('Dispute::!Admin');
+      await expect(tx).to.be.revertedWith('Disputes::!Admin');
       // expect no change to transaction state
       let taskCount = await project.taskCount();
       expect(taskCount).to.be.equal(2);
@@ -632,7 +632,7 @@ export const disputeTests = async ({
         .connect(signers[1])
         .resolveDispute(5, '0x3ea1', false);
       // expect resolve transaction to fail
-      await expect(tx).to.be.revertedWith('Dispute::!Admin');
+      await expect(tx).to.be.revertedWith('Disputes::!Admin');
       // expect old task completion state
       let state = await project.getTask(2);
       expect(state.state).to.be.equal(2);
@@ -774,7 +774,7 @@ export const disputeTests = async ({
         .attachDocument(7, '0xcccc');
       await expect(tx).to.be.revertedWith('Disputes::!Member');
     });
-    it("Dispute participants can attach CID's of document", async () => {
+    it("Disputes participants can attach CID's of document", async () => {
       const tx = await disputesContract
         .connect(signers[0])
         .attachDocument(7, '0xbbbb');
@@ -801,7 +801,7 @@ export const disputeTests = async ({
       let tx = disputesContract
         .connect(signers[0])
         .raiseDispute(encodedData, signature);
-      await expect(tx).to.be.revertedWith('Dispute::!Project');
+      await expect(tx).to.be.revertedWith('Disputes::!Project');
     });
     it('Cannot raise dispute with invalid ActionType', async () => {
       // build and raise invalid dispute transaction

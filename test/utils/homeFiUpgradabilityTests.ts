@@ -90,7 +90,7 @@ export const homeFiUpgradabilityTests = async ({
     expect(await homeFiV2MockContract.communityContract()).to.equal(
       communityContract.address,
     );
-    expect(await homeFiV2MockContract.disputeContract()).to.equal(
+    expect(await homeFiV2MockContract.disputesContract()).to.equal(
       disputesContract.address,
     );
     expect(await homeFiV2MockContract.addrSet()).to.equal(true);
