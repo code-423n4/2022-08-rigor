@@ -6,7 +6,7 @@ import {IHomeFi} from "./IHomeFi.sol";
 import {IProject} from "./IProject.sol";
 
 /**
- * @title Interface for Dispute contract for HomeFi v2.5.0
+ * @title Interface for Disputes contract for HomeFi v2.5.0
 
  * @dev Module for raising disputes for arbitration within HomeFi projects
  */

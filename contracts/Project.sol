@@ -36,7 +36,7 @@ contract Project is
      * ------------------------FIXED INTERNAL STORED PROPERTIES------------------------- *
      *******************************************************************************/
 
-    /// @notice Dispute contract instance
+    /// @notice Disputes contract instance
     address internal disputes;
 
     /// @notice mapping of tasks index to Task struct.
@@ -98,7 +98,7 @@ contract Project is
     ) external override initializer {
         // Initialize variables
         homeFi = IHomeFi(_homeFiAddress);
-        disputes = homeFi.disputeContract();
+        disputes = homeFi.disputesContract();
         lenderFee = homeFi.lenderFee();
         builder = _sender;
         currency = IDebtToken(_currency);
@@ -531,7 +531,7 @@ contract Project is
             }
         }
 
-        // Make a call to Dispute contract raiseDisputes.
+        // Make a call to Disputes contract raiseDisputes.
         IDisputes(disputes).raiseDispute(_data, _signature);
     }
 

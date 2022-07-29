@@ -47,7 +47,7 @@ export async function deployMockToken(
  * @return projectFactoryContract - contract owned by homeFi that deploys project contracts
  * @return tasksLibrary - contract containing task library
  * @return communityContract - contract where external lending flows into projects
- * @return disputeContract - contract where disputes over project actions are abitrated by admin
+ * @return disputesContract - contract where disputes over project actions are abitrated by admin
  * @return rETHContract - HomeFi ETH-Collateralized Debt Obligation ERC20
  * @return rDAIContract - HomeFi DAI-Collateralized Debt Obligation ERC20
  * @return rUSDCContract - HomeFi USDC-Collateralized Debt Obligation ERC20

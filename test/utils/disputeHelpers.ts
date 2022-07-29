@@ -32,7 +32,7 @@ export async function makeDispute(
   if (type == 1) actionTypes = types.taskAdd;
   else if (type == 2) actionTypes = types.taskChange;
   else if (type == 3) actionTypes = types.taskPay;
-  else throw new Error(`Dispute Action Type of "${type}" unrecognized`);
+  else throw new Error(`Disputes Action Type of "${type}" unrecognized`);
   const actionData = {
     types: actionTypes,
     values: actionValues,

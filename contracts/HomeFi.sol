@@ -43,7 +43,7 @@ contract HomeFi is
     /// @inheritdoc IHomeFi
     IProjectFactory public override projectFactoryInstance;
     /// @inheritdoc IHomeFi
-    address public override disputeContract;
+    address public override disputesContract;
     /// @inheritdoc IHomeFi
     address public override communityContract;
     /// @inheritdoc IHomeFi
@@ -123,7 +123,7 @@ contract HomeFi is
     function setAddr(
         address _projectFactory,
         address _communityContract,
-        address _disputeContract,
+        address _disputesContract,
         address _hTokenCurrency1,
         address _hTokenCurrency2,
         address _hTokenCurrency3
@@ -133,7 +133,7 @@ contract HomeFi is
         onlyAdmin
         nonZero(_projectFactory)
         nonZero(_communityContract)
-        nonZero(_disputeContract)
+        nonZero(_disputesContract)
         nonZero(_hTokenCurrency1)
         nonZero(_hTokenCurrency2)
         nonZero(_hTokenCurrency3)
@@ -144,7 +144,7 @@ contract HomeFi is
         // Initialize variables
         projectFactoryInstance = IProjectFactory(_projectFactory);
         communityContract = _communityContract;
-        disputeContract = _disputeContract;
+        disputesContract = _disputesContract;
         wrappedToken[tokenCurrency1] = _hTokenCurrency1;
         wrappedToken[tokenCurrency2] = _hTokenCurrency2;
         wrappedToken[tokenCurrency3] = _hTokenCurrency3;

@@ -53,11 +53,11 @@ interface IHomeFi {
 
      * @dev can only be called once
      * @dev modifier onlyAdmin
-     * @dev modifier nonZero: with _projectFactory, _communityContract, _disputeContract, _hTokenCurrency1, _hTokenCurrency2, and _hTokenCurrency3.
+     * @dev modifier nonZero: with _projectFactory, _communityContract, _disputesContract, _hTokenCurrency1, _hTokenCurrency2, and _hTokenCurrency3.
 
      * @param _projectFactory address - contract instance of ProjectFactory.sol
      * @param _communityContract address - contract instance of Community.sol
-     * @param _disputeContract address - contract instance of Dispute.sol
+     * @param _disputesContract address - contract instance of Disputes.sol
      * @param _hTokenCurrency1 address - Token 1 debt token address
      * @param _hTokenCurrency2 address - Token 2 debt token address
      * @param _hTokenCurrency3 address - Token 3 debt token address
@@ -65,7 +65,7 @@ interface IHomeFi {
     function setAddr(
         address _projectFactory,
         address _communityContract,
-        address _disputeContract,
+        address _disputesContract,
         address _hTokenCurrency1,
         address _hTokenCurrency2,
         address _hTokenCurrency3
@@ -166,7 +166,7 @@ interface IHomeFi {
     function projectFactoryInstance() external view returns (IProjectFactory);
 
     /// @notice address of dispute contract
-    function disputeContract() external view returns (address);
+    function disputesContract() external view returns (address);
 
     /// @notice address of community contract
     function communityContract() external view returns (address);

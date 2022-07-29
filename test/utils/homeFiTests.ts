@@ -49,7 +49,7 @@ export const homeFiTests = async ({
     expect(await homeFiContract.projectFactoryInstance()).to.equal(
       projectFactoryContract.address,
     );
-    expect(await homeFiContract.disputeContract()).to.equal(
+    expect(await homeFiContract.disputesContract()).to.equal(
       disputesContract.address,
     );
     expect(await homeFiContract.communityContract()).to.equal(
