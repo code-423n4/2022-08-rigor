@@ -101,40 +101,41 @@ Of course depending on the step different signatures will be required to execute
 All the contracts in this section are to be reviewed. Any contracts not in this list are to be ignored for this contest. A further breakdown of [contracts and their dependencies can be found here](https://docs.google.com/spreadsheets/d/1zrnn5i7L8PpICnjI-C7KcE_ITCVpiNnGbMLpFcT6gEU/edit#gid=0)
 
 ### Files in scope
-|File|nSLOC|SLOC|Lines|
-|:-|:-:|:-:|:-:|
-|_Contracts (7)_|
-|[contracts/DebtToken.sol](https://github.com/code-423n4/2022-08-rigor/blob/a2bc200561598f76a7adbf7f7295a8e4a3c18920/contracts/DebtToken.sol)|35|55|106|
-|[contracts/ProjectFactory.sol](https://github.com/code-423n4/2022-08-rigor/blob/a2bc200561598f76a7adbf7f7295a8e4a3c18920/contracts/ProjectFactory.sol)|37|56|106|
-|[contracts/HomeFiProxy.sol](https://github.com/code-423n4/2022-08-rigor/blob/a2bc200561598f76a7adbf7f7295a8e4a3c18920/contracts/HomeFiProxy.sol)|70|93|231|
-|[contracts/Disputes.sol](https://github.com/code-423n4/2022-08-rigor/blob/a2bc200561598f76a7adbf7f7295a8e4a3c18920/contracts/Disputes.sol)|112|144|273|
-|[contracts/HomeFi.sol](https://github.com/code-423n4/2022-08-rigor/blob/a2bc200561598f76a7adbf7f7295a8e4a3c18920/contracts/HomeFi.sol)|117|197|323|
-|[contracts/Project.sol](https://github.com/code-423n4/2022-08-rigor/blob/a2bc200561598f76a7adbf7f7295a8e4a3c18920/contracts/Project.sol)|406|474|911|
-|[contracts/Community.sol](https://github.com/code-423n4/2022-08-rigor/blob/a2bc200561598f76a7adbf7f7295a8e4a3c18920/contracts/Community.sol)|422|569|919|
-|_Libraries (2)_|
-|[contracts/libraries/SignatureDecoder.sol](https://github.com/code-423n4/2022-08-rigor/blob/a2bc200561598f76a7adbf7f7295a8e4a3c18920/contracts/libraries/SignatureDecoder.sol)|34|50|86|
-|[contracts/libraries/Tasks.sol](https://github.com/code-423n4/2022-08-rigor/blob/a2bc200561598f76a7adbf7f7295a8e4a3c18920/contracts/libraries/Tasks.sol)|68|86|198|
-|Total (over 9 files):| 1301 | 1724 | 3153 |
 
+| File                                                                                                                                                                           | nSLOC | SLOC | Lines |
+| :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---: | :--: | :---: |
+| _Contracts (7)_                                                                                                                                                                |
+| [contracts/DebtToken.sol](https://github.com/code-423n4/2022-08-rigor/blob/a2bc200561598f76a7adbf7f7295a8e4a3c18920/contracts/DebtToken.sol)                                   |  35   |  55  |  106  |
+| [contracts/ProjectFactory.sol](https://github.com/code-423n4/2022-08-rigor/blob/a2bc200561598f76a7adbf7f7295a8e4a3c18920/contracts/ProjectFactory.sol)                         |  37   |  56  |  106  |
+| [contracts/HomeFiProxy.sol](https://github.com/code-423n4/2022-08-rigor/blob/a2bc200561598f76a7adbf7f7295a8e4a3c18920/contracts/HomeFiProxy.sol)                               |  70   |  93  |  231  |
+| [contracts/Disputes.sol](https://github.com/code-423n4/2022-08-rigor/blob/a2bc200561598f76a7adbf7f7295a8e4a3c18920/contracts/Disputes.sol)                                     |  112  | 144  |  273  |
+| [contracts/HomeFi.sol](https://github.com/code-423n4/2022-08-rigor/blob/a2bc200561598f76a7adbf7f7295a8e4a3c18920/contracts/HomeFi.sol)                                         |  117  | 197  |  323  |
+| [contracts/Project.sol](https://github.com/code-423n4/2022-08-rigor/blob/a2bc200561598f76a7adbf7f7295a8e4a3c18920/contracts/Project.sol)                                       |  406  | 474  |  911  |
+| [contracts/Community.sol](https://github.com/code-423n4/2022-08-rigor/blob/a2bc200561598f76a7adbf7f7295a8e4a3c18920/contracts/Community.sol)                                   |  422  | 569  |  919  |
+| _Libraries (2)_                                                                                                                                                                |
+| [contracts/libraries/SignatureDecoder.sol](https://github.com/code-423n4/2022-08-rigor/blob/a2bc200561598f76a7adbf7f7295a8e4a3c18920/contracts/libraries/SignatureDecoder.sol) |  34   |  50  |  86   |
+| [contracts/libraries/Tasks.sol](https://github.com/code-423n4/2022-08-rigor/blob/a2bc200561598f76a7adbf7f7295a8e4a3c18920/contracts/libraries/Tasks.sol)                       |  68   |  86  |  198  |
+| Total (over 9 files):                                                                                                                                                          | 1301  | 1724 | 3153  |
 
 ### Direct parent contracts of in-scope contracts (not in scope)
-Interfaces and abstracts should be added to scope - wardens will have to review them regardless, and will ask about them
-|File|nSLOC|SLOC|Lines|
-|:-|:-:|:-:|:-:|
-|_Interfaces (6)_|
-|[contracts/interfaces/IDebtToken.sol](https://github.com/code-423n4/2022-08-rigor/blob/a2bc200561598f76a7adbf7f7295a8e4a3c18920/contracts/interfaces/IDebtToken.sol)|8|13|50|
-|[contracts/interfaces/IProjectFactory.sol](https://github.com/code-423n4/2022-08-rigor/blob/a2bc200561598f76a7adbf7f7295a8e4a3c18920/contracts/interfaces/IProjectFactory.sol)|9|14|58|
-|[contracts/interfaces/IHomeFi.sol](https://github.com/code-423n4/2022-08-rigor/blob/a2bc200561598f76a7adbf7f7295a8e4a3c18920/contracts/interfaces/IHomeFi.sol)|41|64|206|
-|[contracts/interfaces/IDisputes.sol](https://github.com/code-423n4/2022-08-rigor/blob/a2bc200561598f76a7adbf7f7295a8e4a3c18920/contracts/interfaces/IDisputes.sol)|45|68|160|
-|[contracts/interfaces/IProject.sol](https://github.com/code-423n4/2022-08-rigor/blob/a2bc200561598f76a7adbf7f7295a8e4a3c18920/contracts/interfaces/IProject.sol)|57|87|331|
-|[contracts/interfaces/ICommunity.sol](https://github.com/code-423n4/2022-08-rigor/blob/a2bc200561598f76a7adbf7f7295a8e4a3c18920/contracts/interfaces/ICommunity.sol)|114|175|440|
-|Total (over 6 files):| 274 | 421 | 1245 |
+
+| File                                                                                                                                                                           | nSLOC | SLOC | Lines |
+| :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---: | :--: | :---: |
+| _Interfaces (6)_                                                                                                                                                               |
+| [contracts/interfaces/IDebtToken.sol](https://github.com/code-423n4/2022-08-rigor/blob/a2bc200561598f76a7adbf7f7295a8e4a3c18920/contracts/interfaces/IDebtToken.sol)           |   8   |  13  |  50   |
+| [contracts/interfaces/IProjectFactory.sol](https://github.com/code-423n4/2022-08-rigor/blob/a2bc200561598f76a7adbf7f7295a8e4a3c18920/contracts/interfaces/IProjectFactory.sol) |   9   |  14  |  58   |
+| [contracts/interfaces/IHomeFi.sol](https://github.com/code-423n4/2022-08-rigor/blob/a2bc200561598f76a7adbf7f7295a8e4a3c18920/contracts/interfaces/IHomeFi.sol)                 |  41   |  64  |  206  |
+| [contracts/interfaces/IDisputes.sol](https://github.com/code-423n4/2022-08-rigor/blob/a2bc200561598f76a7adbf7f7295a8e4a3c18920/contracts/interfaces/IDisputes.sol)             |  45   |  68  |  160  |
+| [contracts/interfaces/IProject.sol](https://github.com/code-423n4/2022-08-rigor/blob/a2bc200561598f76a7adbf7f7295a8e4a3c18920/contracts/interfaces/IProject.sol)               |  57   |  87  |  331  |
+| [contracts/interfaces/ICommunity.sol](https://github.com/code-423n4/2022-08-rigor/blob/a2bc200561598f76a7adbf7f7295a8e4a3c18920/contracts/interfaces/ICommunity.sol)           |  114  | 175  |  440  |
+| Total (over 6 files):                                                                                                                                                          |  274  | 421  | 1245  |
 
 ### Other contracts directly imported by in-scope contracts (not in scope)
+
 None
 
-
 ### All other source contracts (not in scope)
+
 None
 
 ### HomeFiProxy.sol (93 sloc each)
@@ -198,36 +199,37 @@ Internal library used in Project. Contains functions specific to a task actions 
 Decodes signatures that are encoded as bytes.
 
 ## External imports
-* **@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol**
-  * [contracts/HomeFiProxy.sol](https://github.com/code-423n4/2022-08-rigor/blob/a2bc200561598f76a7adbf7f7295a8e4a3c18920/contracts/HomeFiProxy.sol)
-* **@openzeppelin/contracts-upgradeable/metatx/ERC2771ContextUpgradeable.sol**
-  * [contracts/Community.sol](https://github.com/code-423n4/2022-08-rigor/blob/a2bc200561598f76a7adbf7f7295a8e4a3c18920/contracts/Community.sol)
-  * [contracts/Disputes.sol](https://github.com/code-423n4/2022-08-rigor/blob/a2bc200561598f76a7adbf7f7295a8e4a3c18920/contracts/Disputes.sol)
-  * [contracts/HomeFi.sol](https://github.com/code-423n4/2022-08-rigor/blob/a2bc200561598f76a7adbf7f7295a8e4a3c18920/contracts/HomeFi.sol)
-  * [contracts/Project.sol](https://github.com/code-423n4/2022-08-rigor/blob/a2bc200561598f76a7adbf7f7295a8e4a3c18920/contracts/Project.sol)
-  * [contracts/ProjectFactory.sol](https://github.com/code-423n4/2022-08-rigor/blob/a2bc200561598f76a7adbf7f7295a8e4a3c18920/contracts/ProjectFactory.sol)
-* **@openzeppelin/contracts-upgradeable/proxy/ClonesUpgradeable.sol**
-  * [contracts/ProjectFactory.sol](https://github.com/code-423n4/2022-08-rigor/blob/a2bc200561598f76a7adbf7f7295a8e4a3c18920/contracts/ProjectFactory.sol)
-* **@openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol**
-  * [contracts/Community.sol](https://github.com/code-423n4/2022-08-rigor/blob/a2bc200561598f76a7adbf7f7295a8e4a3c18920/contracts/Community.sol)
-* **@openzeppelin/contracts-upgradeable/security/ReentrancyGuardUpgradeable.sol**
-  * [contracts/Community.sol](https://github.com/code-423n4/2022-08-rigor/blob/a2bc200561598f76a7adbf7f7295a8e4a3c18920/contracts/Community.sol)
-  * [contracts/Disputes.sol](https://github.com/code-423n4/2022-08-rigor/blob/a2bc200561598f76a7adbf7f7295a8e4a3c18920/contracts/Disputes.sol)
-  * [contracts/HomeFi.sol](https://github.com/code-423n4/2022-08-rigor/blob/a2bc200561598f76a7adbf7f7295a8e4a3c18920/contracts/HomeFi.sol)
-  * [contracts/Project.sol](https://github.com/code-423n4/2022-08-rigor/blob/a2bc200561598f76a7adbf7f7295a8e4a3c18920/contracts/Project.sol)
-* **@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol**
-  * [contracts/DebtToken.sol](https://github.com/code-423n4/2022-08-rigor/blob/a2bc200561598f76a7adbf7f7295a8e4a3c18920/contracts/DebtToken.sol)
-* **@openzeppelin/contracts-upgradeable/token/ERC20/IERC20Upgradeable.sol**
-  * ~~[contracts/interfaces/IDebtToken.sol](https://github.com/code-423n4/2022-08-rigor/blob/a2bc200561598f76a7adbf7f7295a8e4a3c18920/contracts/interfaces/IDebtToken.sol)~~
-* **@openzeppelin/contracts-upgradeable/token/ERC20/utils/SafeERC20Upgradeable.sol**
-  * [contracts/Community.sol](https://github.com/code-423n4/2022-08-rigor/blob/a2bc200561598f76a7adbf7f7295a8e4a3c18920/contracts/Community.sol)
-  * [contracts/Project.sol](https://github.com/code-423n4/2022-08-rigor/blob/a2bc200561598f76a7adbf7f7295a8e4a3c18920/contracts/Project.sol)
-* **@openzeppelin/contracts-upgradeable/token/ERC721/extensions/ERC721URIStorageUpgradeable.sol**
-  * [contracts/HomeFi.sol](https://github.com/code-423n4/2022-08-rigor/blob/a2bc200561598f76a7adbf7f7295a8e4a3c18920/contracts/HomeFi.sol)
-* **@openzeppelin/contracts/proxy/transparent/ProxyAdmin.sol**
-  * [contracts/HomeFiProxy.sol](https://github.com/code-423n4/2022-08-rigor/blob/a2bc200561598f76a7adbf7f7295a8e4a3c18920/contracts/HomeFiProxy.sol)
-* **@openzeppelin/contracts/proxy/transparent/TransparentUpgradeableProxy.sol**
-  * [contracts/HomeFiProxy.sol](https://github.com/code-423n4/2022-08-rigor/blob/a2bc200561598f76a7adbf7f7295a8e4a3c18920/contracts/HomeFiProxy.sol)
+
+- **@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol**
+  - [contracts/HomeFiProxy.sol](https://github.com/code-423n4/2022-08-rigor/blob/a2bc200561598f76a7adbf7f7295a8e4a3c18920/contracts/HomeFiProxy.sol)
+- **@openzeppelin/contracts-upgradeable/metatx/ERC2771ContextUpgradeable.sol**
+  - [contracts/Community.sol](https://github.com/code-423n4/2022-08-rigor/blob/a2bc200561598f76a7adbf7f7295a8e4a3c18920/contracts/Community.sol)
+  - [contracts/Disputes.sol](https://github.com/code-423n4/2022-08-rigor/blob/a2bc200561598f76a7adbf7f7295a8e4a3c18920/contracts/Disputes.sol)
+  - [contracts/HomeFi.sol](https://github.com/code-423n4/2022-08-rigor/blob/a2bc200561598f76a7adbf7f7295a8e4a3c18920/contracts/HomeFi.sol)
+  - [contracts/Project.sol](https://github.com/code-423n4/2022-08-rigor/blob/a2bc200561598f76a7adbf7f7295a8e4a3c18920/contracts/Project.sol)
+  - [contracts/ProjectFactory.sol](https://github.com/code-423n4/2022-08-rigor/blob/a2bc200561598f76a7adbf7f7295a8e4a3c18920/contracts/ProjectFactory.sol)
+- **@openzeppelin/contracts-upgradeable/proxy/ClonesUpgradeable.sol**
+  - [contracts/ProjectFactory.sol](https://github.com/code-423n4/2022-08-rigor/blob/a2bc200561598f76a7adbf7f7295a8e4a3c18920/contracts/ProjectFactory.sol)
+- **@openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol**
+  - [contracts/Community.sol](https://github.com/code-423n4/2022-08-rigor/blob/a2bc200561598f76a7adbf7f7295a8e4a3c18920/contracts/Community.sol)
+- **@openzeppelin/contracts-upgradeable/security/ReentrancyGuardUpgradeable.sol**
+  - [contracts/Community.sol](https://github.com/code-423n4/2022-08-rigor/blob/a2bc200561598f76a7adbf7f7295a8e4a3c18920/contracts/Community.sol)
+  - [contracts/Disputes.sol](https://github.com/code-423n4/2022-08-rigor/blob/a2bc200561598f76a7adbf7f7295a8e4a3c18920/contracts/Disputes.sol)
+  - [contracts/HomeFi.sol](https://github.com/code-423n4/2022-08-rigor/blob/a2bc200561598f76a7adbf7f7295a8e4a3c18920/contracts/HomeFi.sol)
+  - [contracts/Project.sol](https://github.com/code-423n4/2022-08-rigor/blob/a2bc200561598f76a7adbf7f7295a8e4a3c18920/contracts/Project.sol)
+- **@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol**
+  - [contracts/DebtToken.sol](https://github.com/code-423n4/2022-08-rigor/blob/a2bc200561598f76a7adbf7f7295a8e4a3c18920/contracts/DebtToken.sol)
+- **@openzeppelin/contracts-upgradeable/token/ERC20/IERC20Upgradeable.sol**
+  - ~~[contracts/interfaces/IDebtToken.sol](https://github.com/code-423n4/2022-08-rigor/blob/a2bc200561598f76a7adbf7f7295a8e4a3c18920/contracts/interfaces/IDebtToken.sol)~~
+- **@openzeppelin/contracts-upgradeable/token/ERC20/utils/SafeERC20Upgradeable.sol**
+  - [contracts/Community.sol](https://github.com/code-423n4/2022-08-rigor/blob/a2bc200561598f76a7adbf7f7295a8e4a3c18920/contracts/Community.sol)
+  - [contracts/Project.sol](https://github.com/code-423n4/2022-08-rigor/blob/a2bc200561598f76a7adbf7f7295a8e4a3c18920/contracts/Project.sol)
+- **@openzeppelin/contracts-upgradeable/token/ERC721/extensions/ERC721URIStorageUpgradeable.sol**
+  - [contracts/HomeFi.sol](https://github.com/code-423n4/2022-08-rigor/blob/a2bc200561598f76a7adbf7f7295a8e4a3c18920/contracts/HomeFi.sol)
+- **@openzeppelin/contracts/proxy/transparent/ProxyAdmin.sol**
+  - [contracts/HomeFiProxy.sol](https://github.com/code-423n4/2022-08-rigor/blob/a2bc200561598f76a7adbf7f7295a8e4a3c18920/contracts/HomeFiProxy.sol)
+- **@openzeppelin/contracts/proxy/transparent/TransparentUpgradeableProxy.sol**
+  - [contracts/HomeFiProxy.sol](https://github.com/code-423n4/2022-08-rigor/blob/a2bc200561598f76a7adbf7f7295a8e4a3c18920/contracts/HomeFiProxy.sol)
 
 ## Interest calculation
 
@@ -250,7 +252,7 @@ cd 2022-08-rigor
 
 ```bash
 yarn
-````
+```
 
 - Create .env file (you can copy ".sample.env")
 
@@ -346,8 +348,8 @@ ProjectFactory proxy upgrade is mostly required to upgrade the underlying `Proje
 
 Latest contract addresses can be found under "deployments/\<network\>.json"
 
-
 ## Scoping details answers
+
 ```
 - Do you have a link to the repo that the contest will cover?
 https://github.com/RigorHQ/Rigor-ProtocolV2
