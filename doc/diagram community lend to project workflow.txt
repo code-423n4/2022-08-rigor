@@ -1,0 +1,54 @@
+participant Community Owner
+participant Builder
+participant Contractor
+participant Community
+
+participant HomeFi
+participant Project Factory
+participant Project
+
+note over Community Owner,Project: Create Project
+Builder->HomeFi:createProject(bytes _hash, address _currency)
+HomeFi->Project Factory:createProject(address _currency, address _sender)
+Project Factory->Project: deploy project
+
+note over Community Owner,Project: Invite General Contractor
+note over Builder,Project:**Offchain** - Builder signs contractor invite request
+note over Contractor,Project:**Offchain** - Contractor signs invite request
+Builder-> Project: inviteContractor(bytes _data, bytes _signature)
+
+note over Community Owner,Project: Add task to Project
+note over Builder,Project:**Offchain** - Builder signs add task request
+note over Contractor,Project:**Offchain** - Contractor signs add task request
+Builder-> Project: addTasks(bytes _data, bytes _signature)
+
+note over Community Owner,Project: Create Community
+Community Owner->Community:createCommunity(bytes _hash, address _currency) 
+Community--> Community Owner:returns Community ID 
+
+note over Community Owner,Project: Add Member
+note over Community Owner,Community:**Offchain** - Owner signs add member request for builder
+note over Builder,Community:**Offchain** - builder signs add member request
+Builder-> Community: addMember(bytes _data, bytes _signatures)
+
+note over Community Owner,Project: Publish Project
+note over Builder,Community:**Offchain** - Builder signs publish project request
+note over Community Owner,Community:**Offchain** - Owner signs publish project request
+Community Owner->Community: publishProject(bytes _data, bytes _signature)
+ 
+
+note over Community Owner,Project: **optional** Toggle lending needed 
+Builder-> Community:toggleLendingNeeded(uint256 _communityID, address _project, uint256 _lendingNeeded)
+ 
+
+note over Community Owner,Project: Lend to Project from the community
+Community Owner->Community:lendToProject(uint256 _communityID, address _project, uint256 _lendingAmount, bytes _hash)
+Community-->Project:lendToProject(uint256 _cost)
+Project-->Project: allocates funds for tasks 
+Community Owner-->Project: Transfer tokens
+Project-> Community Owner:transfer debt Token (wrapped community currency)
+
+note over Community Owner,Project: Lend to Project directly from the builder
+Builder->Project:lendToProject(uint256 _cost)
+Project-->Project: allocates funds for tasks 
+Builder-->Project: Transfer tokens
