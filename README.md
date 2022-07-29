@@ -285,77 +285,58 @@ ProjectFactory proxy upgrade is mostly required to upgrade the underlying `Proje
 
 
 ## Scoping details answers
-```md
+```
+- Do you have a link to the repo that the contest will cover?
+https://github.com/RigorHQ/Rigor-ProtocolV2
 
-### Do you have a link to the repo that the contest will cover?
-
-[https://github.com/RigorHQ/Rigor-ProtocolV2](https://github.com/RigorHQ/Rigor-ProtocolV2)
-
-### How many (non-library) contracts are in the scope?
-
+- How many (non-library) contracts are in the scope?
 7
 
-### Total sLoC in these contracts?
-
+- Total sLoC in these contracts?
 2105
 
-### How many library dependencies?
-
+- How many library dependencies?
 2
 
-### How many separate interfaces and struct definitions are there for the contracts within scope?
-
+- How many separate interfaces and struct definitions are there for the contracts within scope?
 7 interfaces 4 structs
 
-### Does most of your code generally use composition or inheritance?
-
+- Does most of your code generally use composition or inheritance?
 We are mostly using Inheritance for storing the basic schema of our contracts. Storing external functions params, returns, events, structs, and enums, without any implementation.
 
-### How many external calls?
-
+- How many external calls?
 Two. Calling transfer() and transferFrom() on supported tokens. As of now, we are supporting USDC, WXDAI, and WETH.
 
-### Is there a need to understand a separate part of the codebase / get context in order to audit this part of the protocol?
-
+- Is there a need to understand a separate part of the codebase / get context in order to audit this part of the protocol?
 false
 
-### Does it use an oracle?
-
+- Does it use an oracle?
 false
 
-### Does the token conform to the ERC20 standard?
-
+- Does the token conform to the ERC20 standard?
 We have a debt token that is a modified ERC20
 
-### Are there any novel or unique curve logic or mathematical models?
-
+- Are there any novel or unique curve logic or mathematical models?
 No
 
-### Does it use a timelock function?
-
+- Does it use a timelock function?
 No
 
-### Is it an NFT?
-
+- Is it an NFT?
 We use NFTs
 
-### Does it have an AMM?
-
+- Does it have an AMM?
 No
 
-### Is it a fork of a popular project?
-
+- Is it a fork of a popular project?
 false
 
-### Does it use rollups?
-
+- Does it use rollups?
 false
 
-### Is it multi-chain?
-
+- Is it multi-chain?
 false
 
-### Does it use a side-chain?
-
+- Does it use a side-chain?
 false
 ```
