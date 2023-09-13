@@ -1,0 +1,1103 @@
+==============================================================
+Guild: Code4rena
+Channel: ARCHIVE-Q3-2022 / ☑rigor-aug1
+==============================================================
+
+[07/28/2022 7:30 PM] kartoonjoy
+👋 Hello and welcome to the contest channel for the $50K USDC **Rigor Protocol** contest!
+
+📆 Contest opens 08/01/2022 8:00 PM (20:00 UTC) and runs through 08/06/2022 8:00 PM (20:00 UTC) (5 days).
+
+Please give a warm welcome to the Rigor Protocol team, particularly @deeayeen, @Parv, @dan13ram | Rigor and @ogZ who will be available for questions either here in the channel or via DM.
+
+We'll be posting relevant links, documentation, etc. here, so if you intend to participate in this contest, consider enabling notifications for this channel. 🐺 ⏰
+
+Contest Page: https://code4rena.com/contests/2022-08-rigor-protocol-contest
+
+{Embed}
+https://code4rena.com/contests/2022-08-rigor-protocol-contest
+Code4rena Rigor Protocol contest
+$50,000 USDC
+1 August 2022—6 August 2022
+Code4rena - ARCHIVE-Q3-2022 - ☑rigor-aug1 [1002295732000264323].txt_Files/C4-banner-7C19B.png
+
+{Reactions}
+👋 (7) 👍 
+
+[07/31/2022 8:49 PM] ch_301
+⏳
+
+
+[07/31/2022 9:58 PM] Franfran#5067
+Can devs do something ?
+Everyday I check Rigor contest, contest not started
+
+
+[07/31/2022 9:58 PM] Franfran#5067
+https://tenor.com/view/nich-bad-nft-gif-23770085
+
+{Embed}
+https://tenor.com/view/nich-bad-nft-gif-23770085
+Code4rena - ARCHIVE-Q3-2022 - ☑rigor-aug1 [1002295732000264323].txt_Files/nich-bad-nft-C1D3A.png
+
+
+[08/01/2022 4:30 PM] okkothejawa
+🏗️ 👷
+
+{Reactions}
+cyberheart 
+
+[08/01/2022 9:04 PM] devabdee
+Another Hardhat Project :)
+
+
+[08/01/2022 9:32 PM] perrythepwner.eth
+is it this bad? :/ i'm completely new so idk
+
+
+[08/01/2022 9:33 PM] alextheentreprenerd
+Hardhat is one of the three leading Frameworks for Smart Contract Dev
+
+
+[08/01/2022 9:35 PM] perrythepwner.eth
+yea ik, i just saw another warden complaining about it in previous audit
+
+
+[08/01/2022 11:23 PM] shung69
+finally something my civil engineering diploma is tangentially useful for.
+
+{Reactions}
+💀 (6) 👒 (4) 
+
+[08/01/2022 11:58 PM] 100proof
+I'm not sure they were complaining.
+
+
+[08/01/2022 11:59 PM] 100proof
+I've come to like Foundry quite a bit but there's still stuff I can only do in Hardhat.
+
+{Reactions}
+💯 
+
+[08/02/2022 12:18 AM] minh___
+which are those? i used foundry for the first time in the fractional contest and I like it more than Hardhat already :D
+
+
+[08/02/2022 12:19 AM] 100proof
+Great questio @minhtrng. I might have just written down an opinion I can't back up 😛
+
+{Reactions}
+😆 (3) 
+
+[08/02/2022 12:20 AM] 100proof
+I think in Hardhat I can use `console.log` a lot more easily to get a feeling for what the values of things are. In Foundry I have to add events and then look at those. I guess it's not the end of the world.
+
+{Reactions}
+👍 (2) 
+
+[08/02/2022 12:21 AM] 100proof
+(I'm taking this discussion to #wardens)
+
+
+[08/02/2022 12:21 AM] tofunmi
+Foundry test are quicker,  you see call traces with diagrams in the terminal , you can test things faster , understand the test suite faster
+
+{Reactions}
+👍 
+
+[08/02/2022 12:22 AM] 100proof
+Yeah, you gotta use `-vv` or `-vvv` for the sweet diagrams.
+
+{Reactions}
+👍 
+
+[08/02/2022 12:24 AM] tofunmi
+Cheatcodes, ffi, prank , copy and paste things faster here and there,  It is just quicker to audit,  plus you can use sol visual dev for the test files too , trace shit and stuff
+
+
+[08/02/2022 12:26 AM] rokinot
+very well written contracts sirs
+
+{Reactions}
+💯 (5) goose (3) 
+
+[08/02/2022 12:26 AM] Franfran#5067
+You can also console log in foundry
+
+{Reactions}
+🤯 (3) 👍 
+
+[08/02/2022 12:27 AM] Franfran#5067
+They also add fully interoperability with hardhat, it's undeniably faster
+
+
+[08/02/2022 12:27 AM] 100proof
+Let's take this testing discussion to #🐺wardens
+
+
+[08/02/2022 12:27 AM] Franfran#5067
+Cheatcodes, forks, ...
+
+
+[08/02/2022 12:27 AM] Franfran#5067
+oops
+
+
+[08/02/2022 1:03 AM] tofunmi
+@deeayeen @Parv @dan13ram | Rigor @ogZ 
+
+The tests wont run,  solidity tests wont compile cause the solidity versions don't align with openzepelin versions
+
+
+[08/02/2022 1:06 AM] tofunmi
+
+
+{Attachments}
+Code4rena - ARCHIVE-Q3-2022 - ☑rigor-aug1 [1002295732000264323].txt_Files/Screenshot_from_2022-08-02_02-03-55-A69E3.png
+
+
+[08/02/2022 1:08 AM] tofunmi
+There is no way to go around this than to change compile versions manually and make everything align with the openzepellin libraries,  or how were you able to compile what tricks did you use
+
+
+[08/02/2022 1:12 AM] parv3213
+Are you sure you followed all the steps from https://github.com/code-423n4/2022-08-rigor#getting-started ?
+Things are running fine for me.
+
+{Attachments}
+Code4rena - ARCHIVE-Q3-2022 - ☑rigor-aug1 [1002295732000264323].txt_Files/Screenshot_2022-08-02_at_6.42.27_AM-F1757.png
+
+{Reactions}
+💯 
+
+[08/02/2022 1:24 AM] tofunmi
+The problem i think is openzeppelin increased there version to 0.8.9 and your own version is 0.8.6
+
+
+[08/02/2022 1:25 AM] tofunmi
+Or did you run yarn install today
+
+
+[08/02/2022 1:27 AM] parv3213
+Just tried again. And everything works fine.
+
+
+[08/02/2022 1:28 AM] tofunmi
+Yep sure it would on your side
+
+
+[08/02/2022 1:28 AM] parv3213
+Ran this `yarn && cp .sample.env .env && yarn compile && yarn test` on a fresh repo, and everything is fine.
+
+{Attachments}
+Code4rena - ARCHIVE-Q3-2022 - ☑rigor-aug1 [1002295732000264323].txt_Files/Screenshot_2022-08-02_at_6.58.15_AM-45230.png
+
+
+[08/02/2022 1:29 AM] tofunmi
+Lmao 😂 😂
+
+
+[08/02/2022 1:31 AM] tofunmi
+Still getting it though, I would get around it somehow
+
+
+[08/02/2022 1:31 AM] parv3213
+Are you sure you do not have any modifications on your end and that you are following all the steps provided in getting started?
+
+
+[08/02/2022 1:32 AM] tofunmi
+Nope I didn't
+
+
+[08/02/2022 1:32 AM] JohnSmith#1623
+Oh my, so much tests, good job
+
+{Attachments}
+Code4rena - ARCHIVE-Q3-2022 - ☑rigor-aug1 [1002295732000264323].txt_Files/Capture-4D609.PNG
+
+{Reactions}
+❓ 💯 (2) 
+
+[08/02/2022 1:32 AM] tofunmi
+I would remove node modules
+
+
+[08/02/2022 1:33 AM] parv3213
+Yeah, def try that. Also, maybe `yarn hardhat clean`.
+
+
+[08/02/2022 1:34 AM] JohnSmith#1623
+If something is not working it is a great opportunity to learn something new while fixing it, looks like I will not learn much this time 🙂
+
+
+[08/02/2022 1:34 AM] tofunmi
+Or maybe I should add 0.8.9 to hardahat config
+
+
+[08/02/2022 1:34 AM] parv3213
+Although, then compile contracts using `yarn compileCI`.
+
+
+[08/02/2022 1:36 AM] parv3213
+Thank you @JohnSmith 🤙
+
+
+[08/02/2022 2:26 AM] elku.cryptos
+what is nSLOC?
+
+
+[08/02/2022 2:31 AM] tofunmi
+Lines of code 
+I think
+
+
+[08/02/2022 2:32 AM] tofunmi
+It worked , thanks
+
+
+[08/02/2022 2:33 AM] masterchief#9196
+https://github.com/ConsenSys/solidity-metrics/blob/fcd63816551885652fe40ed70e9fab58dbe0287f/src/metrics/metrics.js#L285 maybe ?
+
+{Embed}
+https://github.com/ConsenSys/solidity-metrics/blob/fcd63816551885652fe40ed70e9fab58dbe0287f/src/metrics/metrics.js
+solidity-metrics/metrics.js at fcd63816551885652fe40ed70e9fab58dbe0...
+Solidity Code Metrics. Contribute to ConsenSys/solidity-metrics development by creating an account on GitHub.
+Code4rena - ARCHIVE-Q3-2022 - ☑rigor-aug1 [1002295732000264323].txt_Files/solidity-metrics-DBD80
+
+{Reactions}
+thankyou 
+
+[08/02/2022 2:35 AM] tofunmi
+Largest tests I have ever seen wow
+
+
+[08/02/2022 2:51 AM] elku.cryptos
+hi @Parv , how can i run test for a single file with gas report?
+
+For example `npx hardhat test ./test/Community.ts` doesnt work.
+
+
+[08/02/2022 3:05 AM] dan13ram
+can you try `yarn test test/Community.ts`
+
+
+[08/02/2022 3:07 AM] dan13ram
+This is a known issue in hardhat version >2.8.0 <2.9.0 
+https://github.com/NomicFoundation/hardhat/issues/2220
+Relative paths for running single test files creates errors and instead we must use absolute paths.
+
+
+[08/02/2022 3:13 AM] elku.cryptos
+this actually works with relative path.. but i want to see gas report as well.
+
+
+[08/02/2022 3:13 AM] elku.cryptos
+`REPORT_GAS=true` doesnt work with the above command.
+
+
+[08/02/2022 4:12 AM] dan13ram
+Seems like there is an issue with `hardhat-gas-reporter`. 
+
+You can either exclude certain contracts from the report by using the `excludeContracts` option in hardhat config.
+Or comment out any tests that you do not want running for the time being.
+
+Basically gas reports seem to be working only if you test "all" files together.
+
+
+[08/02/2022 4:34 AM] elku.cryptos
+could you give me an example pls.. just fill two names in there please.  I am not sure of the syntax. 
+
+```
+  gasReporter: {
+    enabled: REPORT_GAS === 'true',
+    currency: 'USD',
+    excludeContracts : []
+    gasPrice: Number.parseInt(REPORT_GAS_PRICE ?? '50'),
+    coinmarketcap: `${COINMARKETCAP_API_KEY || ''}`,
+  },
+```
+
+
+[08/02/2022 4:41 AM] dan13ram
+```
+  gasReporter: {                                                                
+    enabled: REPORT_GAS === 'true',                                             
+    currency: 'USD',                                                            
+    gasPrice: Number.parseInt(REPORT_GAS_PRICE ?? '50'),                        
+    coinmarketcap: `${COINMARKETCAP_API_KEY || ''}`,                            
+    excludeContracts: [                                                         
+      'Disputes.sol',                                                           
+      'DisputesV2Mock.sol',                                                     
+      'CommunityV2Mock.sol',                                                    
+      'DebtToken.sol',                                                          
+      'DebtTokenV2Mock.sol',                                                    
+      'ERC20PresetMinterPauser.sol',                                            
+      'HomeFi.sol',                                                             
+      'HomeFiProxy.sol',
+      'HomeFiMock.sol',                                                            
+      'HomeFiV2Mock.sol',                                                       
+      'HomeFiV3Mock.sol',                                                       
+      'MinimalForwarder.sol',                                                   
+      'Project.sol',                                                            
+      'ProjectFactory.sol',                                                     
+      'ProjectV2Mock.sol',                                                      
+      'ProxyAdmin.sol',                                                         
+      'SignatureDecoderMock.sol',                                               
+      'Tasks.sol',                                                              
+    ],                                                                          
+  },  
+```
+this is to isolate only "Community.sol"
+
+
+[08/02/2022 4:43 AM] dan13ram
+It will still run tests in all files unless you comment them out or rename them to something like "Disputes.ts.bak"
+
+{Reactions}
+👍 
+
+[08/02/2022 10:37 AM] pedr02b2
+legend thank you 🙂
+
+{Reactions}
+🙌 
+
+[08/02/2022 1:45 PM] perrythepwner.eth
+i didn't understood how to create a project. i have to call createProject() in HomeFi, but first i have to initialize HomeFi. This is handled by HomeFiProxy and i have to call initiateHomeFi(), i'm right? which is asking me the address of the deployed HomeFi contract?
+
+
+[08/02/2022 2:02 PM] _zgo
+Take a look at script/deploy.ts to see how to deploy and initialize
+
+{Reactions}
+👌 (3) 
+
+[08/02/2022 6:19 PM] tofunmi
+This is actually v2 , hmmm
+
+
+[08/02/2022 9:30 PM] perrythepwner.eth
+now that I've deployed and initialized everything, there is some .ts that tests for creating a project? btw, i'm trying to understand what `_hash` goes into createProject()
+
+
+[08/03/2022 4:02 AM] parv3213
+That accepts an ipfs hash for storing any offchain detail about the project.
+
+
+[08/03/2022 8:09 AM] tofunmi
+If this is a v2, you guys had any audit before @Parv
+
+{Reactions}
+☝️ (2) 
+
+[08/03/2022 8:11 AM] _zgo
+No it is about features
+
+{Reactions}
+❓ 
+
+[08/03/2022 8:12 AM] tofunmi
+Hmmmm
+
+{Reactions}
+😂 
+
+[08/03/2022 8:13 AM] tofunmi
+I don't get
+
+
+[08/03/2022 8:41 AM] parv3213
+No, we do not. But multiple internal audits.
+
+
+[08/03/2022 10:11 AM] perrythepwner.eth
+it accepts an hash that store whatever i want?  like https://ipfs.io/ipfs/QmQUCgLxwDoDeaJCJc45XWuUXh16qRYjuwn3maRitbMVdp?filename=0 or even an image?
+
+
+[08/03/2022 10:12 AM] parv3213
+yeah, anything
+
+
+[08/03/2022 12:06 PM] dan13ram
+Yeah something like this. We have a specific metadata format that we read for our frontend dapp.
+
+
+[08/03/2022 12:37 PM] perrythepwner.eth
+there is a way to run the frontend locally?
+
+
+[08/03/2022 12:38 PM] dan13ram
+frontend is closed source as of now
+
+
+[08/03/2022 1:30 PM] perrythepwner.eth
+Does anyone know why running tests in ganache fails? (specifically in `Project` tests)
+
+
+[08/03/2022 1:43 PM] illilli000
+you're not running `yarn test` from the readme?
+
+
+[08/03/2022 1:46 PM] perrythepwner.eth
+yea running normally , it's all fine. but I wanted to visualize TXs in ganache and tried with `npx hardhat --network localhost test` (which fails)
+
+{Reactions}
+👍 
+
+[08/03/2022 1:51 PM] perrythepwner.eth
+`     ProviderError: Method personal_sign not supported.`
+
+
+[08/03/2022 1:51 PM] parv3213
+We are using mocha delay, that might be the reason why tests with Ganache might be failing.
+
+
+[08/03/2022 1:52 PM] parv3213
+This maybe some issue with the network you are using with Ganache.
+
+
+[08/03/2022 1:52 PM] perrythepwner.eth
+yea i think so
+
+
+[08/03/2022 2:07 PM] perrythepwner.eth
+which network id may solve this problem?
+
+
+[08/03/2022 2:08 PM] parv3213
+This maybe the issue: https://github.com/trufflesuite/ganache/issues/995.
+
+
+[08/03/2022 7:45 PM] rokinot
+any dev avaliable for a DM?
+
+
+[08/03/2022 8:42 PM] MEP#2577
+I would like to DM a dev aswell if possible
+
+
+[08/04/2022 2:11 AM] dan13ram
+You can DM me or @Parv with your questions.
+
+{Reactions}
+🤙 
+
+[08/04/2022 5:11 AM] jagstock
+do we need to register "Join C4 Discord to register"  to submit findings ?
+
+
+[08/04/2022 5:11 AM] 100proof
+@jag Are you a registered warden yet?
+
+
+[08/04/2022 5:12 AM] jagstock
+I did register as warden couple of months back...forgot what I did though !
+
+
+[08/04/2022 6:18 AM] jagstock
+Thanks @100proof for the help
+
+
+[08/04/2022 6:18 AM] jagstock
+able to find registration
+
+
+[08/05/2022 11:36 AM] perrythepwner.eth
+Question: the Community it's like a crowdfunding entity where members provide liquidity and Community Owner manage it?
+
+
+[08/05/2022 1:15 PM] perrythepwner.eth
+or is the Community Owner that provides liquidity with his money?
+
+
+[08/05/2022 1:42 PM] parv3213
+Community owner is the one providing liquidity.
+
+
+[08/05/2022 10:21 PM] nofig.eth
+What is the reason for all of the override keywords ? @Parv
+
+
+[08/06/2022 12:28 AM] perrythepwner.eth
+what does  `'Mock on the method is not initialized'`  means?
+
+
+[08/06/2022 12:29 AM] 100proof
+For a basic definition of mock testing see: https://devopedia.org/mock-testing
+
+{Reactions}
+👍 
+
+[08/06/2022 12:31 AM] 100proof
+Basically it's a form of testing where you create "mock" answers for method (aka function) calls 
+
+e.g. You could pretend that function `getLastBlockTimestamp` returned "Thursday last week" and return that
+
+
+[08/06/2022 12:31 AM] 100proof
+The error message is saying that no "mock" was defined for the function in question.
+
+
+[08/06/2022 12:44 AM] parv3213
+Because we are overriding the interfaces.
+
+
+[08/06/2022 9:20 AM] perrythepwner.eth
+thanks!
+
+
+[08/06/2022 7:42 PM] 0x1f8b
+One of my issues was repeated because an error while submitting, I resubmitted and it seems that was dup
+
+
+[08/06/2022 7:42 PM] 0x1f8b
+I used the same title
+
+
+[08/06/2022 7:42 PM] 0x1f8b
+Easy to check
+
+
+[08/06/2022 7:44 PM] kartoonjoy
+you can dm RIGHT NOW and I can withdraw the issue in question
+
+{Reactions}
+❤️ 
+
+[08/06/2022 8:02 PM] C4
+**🚨 CONTEST ALERT**
+
+@🐺wardens The **Rigor Protocol** contest is now closed! Huge thanks to everyone who participated 🔍, whether you submitted a finding or not.
+
+What's next: the **Rigor Protocol** team will review the findings over the next couple of days, and then we'll pass them off to the judge. Keep an eye on #📢announcements for regular updates on how the contest is progressing through awarding 🤑🏆, judging 🧑‍⚖️ and reporting 📜. Feel free to ping a gardener if you have questions along the way!
+
+{Reactions}
+cyberheart (4) 
+
+[08/06/2022 8:04 PM] perrythepwner.eth
+how did it go guys?
+
+
+[08/06/2022 8:11 PM] chainNue#2511
+my last submission around 20min ago get an issue number 390ish, so seems it passed 400. Happy reading for the judge to check those submissions 😅
+
+{Reactions}
+😬 (3) 
+
+[08/06/2022 8:16 PM] 100proof
+Remember, we can't talk about the specifics of the issues we found. We'll have to wait for the report.
+
+{Reactions}
+thankyou (2) 👍 (4) 
+
+[08/07/2022 7:49 AM] perrythepwner.eth
+What HOW. this happens every time?
+
+
+[08/07/2022 8:00 AM] codingnamekiki
+400 issues, mr sir the code isn't that much
+
+
+[08/07/2022 8:00 AM] codingnamekiki
+https://tenor.com/view/dk-nintendo-donkey-kong-gif-23203423
+
+{Embed}
+https://tenor.com/view/dk-nintendo-donkey-kong-gif-23203423
+Code4rena - ARCHIVE-Q3-2022 - ☑rigor-aug1 [1002295732000264323].txt_Files/dk-nintendo-1331B.png
+
+{Reactions}
+😆 (3) 
+
+[08/07/2022 9:57 PM] 0xa5df
+Any chance to get some stats about the contest, like how many high/med/QA/gas reports were submitted? Or are the backstagers allowed to share those numbers with us?
+
+
+[08/07/2022 10:20 PM] kartoonjoy
+Nah, you'll need to hold until the report is published.
+
+
+[08/07/2022 10:27 PM] 0xa5df
+K, thanks
+
+
+[08/08/2022 10:37 PM] 100proof
+The stats wouldn't be that useful anyway since the severity needs to be confirmed by the judges and sponsors
+
+
+[08/08/2022 11:15 PM] 0xa5df
+Yeah, but it gives you a good estimate of how was it compared to other contests
+
+
+[08/08/2022 11:30 PM] 100proof
+@kartoonjoy | C4 🎇🎇 could we consider releasing total number of submissions? It wouldn't really give anything away
+
+
+[08/09/2022 9:56 PM] Franfran#5067
+if you go on the github issues you can see a fair 90% of high being rejected
+
+
+[08/10/2022 12:22 AM] CRYP70#8985
+Was a very tough code base this one..
+
+{Reactions}
+👍 
+
+[08/10/2022 2:18 AM] jagstock
+Any idea which network the contracts will be deployed ?..some of the functions consume high gas
+
+
+[08/10/2022 12:16 PM] masterchief#9196
+link ?
+
+
+[08/10/2022 1:08 PM] Franfran#5067
+https://github.com/code-423n4/2022-06-putty-findings/issues?q=is%3Aissue+label%3A%223+%28High+Risk%29%22+
+
+
+[08/10/2022 1:36 PM] masterchief#9196
+Ah I thought you were talking about Rigor lol
+
+
+[08/10/2022 1:40 PM] TurnipBoy#5973
+Only 4/50 were unique
+
+
+[08/10/2022 1:41 PM] TurnipBoy#5973
+20/50 were valid just 16/50 were dupes
+
+
+[08/10/2022 1:44 PM] TurnipBoy#5973
+Percentage of valid high risk is going to vary by contest, more complex protocols tend to have a lower rate because wardens misunderstand portions of the codebase
+
+{Reactions}
+👍 (3) 
+
+[08/10/2022 2:47 PM] kartoonjoy
+Total number of submissions is fine.
+
+
+[08/10/2022 10:46 PM] 100proof
+I wouldn't want to go ahead and just do that myself. Perhaps it can be a post contest statistic? To go in here perhaps? https://discord.com/channels/810916927919620096/1002295732000264323/1005566454323761172
+
+
+[08/10/2022 10:51 PM] itsmetechjay
+Understood.  We will hold on adding this now.  This request is on our list to review/consider further as part of future features.
+
+{Reactions}
+👍 (2) thankyou (3) 
+
+[09/06/2022 9:41 PM] itsmetechjay
+🤑 🎉 Awards for **Rigor:**
+
+$8,065.17 USDC » @Roman 
+$5,180.35 USDC » @hansfriese 
+$3,444.55 USDC » @rbserver 
+$2,623.57 USDC » @0x52 
+$2,599.49 USDC » @0xA5DF 
+$2,560.55 USDC » @indijanc 
+$1,979.53 USDC » @Alex The Entreprenerd 
+$1,672.28 USDC » @wastewa 
+$1,466.58 USDC » @Vlad B | zkSync 
+$1,295.77 USDC » @byndooa 
+$1,046.11 USDC » @0x1f8b 
+$959.50 USDC » @hyh 
+$955.27 USDC » @Bernd 
+$941.63 USDC » @100proof 
+$920.75 USDC » @cccz 
+$844.44 USDC » @cryptphi 
+$799.63 USDC » @minhquanym 
+$651.67 USDC » @horsefacts 
+$630.63 USDC » @scaraven 
+$571.39 USDC » @Haipls 
+$491.95 USDC » @TrungOre 
+$489.27 USDC » @DefSec 
+$388.06 USDC » @Deivitto 
+$373.80 USDC » @0xNazgul 
+$370.13 USDC » @MEP 
+$348.06 USDC » @Chom 
+$301.20 USDC » @Bahurum 
+$301.13 USDC » @bin2chen
+$266.32 USDC » @cryptonue 
+$253.32 USDC » @c3phas 
+$246.32 USDC » @arcoun 
+$246.32 USDC » @Rotcivegaf 
+$229.90 USDC » @simon135 
+$194.90 USDC » @obront 
+$194.90 USDC » @saneryee 
+$179.30 USDC » @rokinot
+$170.12 USDC » @ElKu 
+$165.63 USDC » @auditor0517 
+$165.63 USDC » @smiling_heretic
+
+
+[09/06/2022 9:41 PM] itsmetechjay
+$165.63 USDC » @kankodu 
+$157.22 USDC » @Kaden 
+$154.28 USDC » aez121
+$137.42 USDC » @neumo 
+$129.30 USDC » @Dravee 
+$114.27 USDC » @Ruhum 
+$112.34 USDC » @__141345__ 
+$112.03 USDC » @8olidity 
+$94.87 USDC » @panprog 
+$90.31 USDC » @codexploder 
+$88.10 USDC » @IllIllI 
+$86.51 USDC » CertoraInc (@egjlmn1, @Ori Dabush, @ItayG, @shakedwinder, @RoiEvenHaim)
+$86.51 USDC » @fatherOfBlocks 
+$84.74 USDC » @saian 
+$84.43 USDC » Guardian (@0xOwen-GuardianAudits, Green)
+$75.08 USDC » @MiloTruck 
+$66.27 USDC » @JC
+$66.08 USDC » @benbaessler 
+$66.01 USDC » @hake | SmartSek 
+$66.01 USDC » @0xkatana 
+$66.01 USDC » @gogo 
+$64.58 USDC » @thinklab 
+$62.91 USDC » @pfapostol 
+$62.72 USDC » @samruna 
+$62.71 USDC » @joestakey 
+$62.66 USDC » @ReyAdmirado 
+$62.65 USDC » @TomJ 
+$62.64 USDC » @Rolezn 
+$62.45 USDC » @brgltd 
+$62.41 USDC » Extropy (@zkKirol,@Laurence Kirk,@tidley,@0xWill, @codemedici)
+$62.38 USDC » @code-cipher 
+$62.38 USDC » @0xSmartContract 
+$62.38 USDC » @delfin454000 
+$62.36 USDC » mics
+$62.36 USDC » @bobirichman7542 
+$62.36 USDC » @sikorico 
+$62.35 USDC » @ak1 
+$62.35 USDC » @_Adam 
+$62.35 USDC » @robee 
+$62.35 USDC » @SooYa 
+$62.35 USDC » @CodingNameKiki 
+$62.35 USDC » @EricTee 
+$62.34 USDC » @Bnke 
+$62.34 USDC » @ajtra 
+$62.34 USDC » @Tomio 
+$62.34 USDC » @Funen 
+$62.34 USDC » @Rohan 
+$62.34 USDC » @Sm4rty 
+$62.34 USDC » @Waze 
+$62.34 USDC » @sach1r0 
+$62.34 USDC » @Ignacio 
+$62.34 USDC » @supernova 
+$62.34 USDC » @Sloth 
+$62.34 USDC » @0xSolus 
+$62.34 USDC » @Noah3o6 
+$62.34 USDC » @a12jmx 
+$62.34 USDC » @djxploit 
+$49.69 USDC » @Ch_301 
+$42.55 USDC » @dipp 
+$40.62 USDC » 0xf15ers(@remora0, @twojoy)
+$40.62 USDC » @bulej93 
+$40.62 USDC » @Soosh 
+$40.62 USDC » @0xNineDec 
+$40.62 USDC » @PENGUN 
+$40.62 USDC » @ayeslick 
+$40.62 USDC » poirots(@Davide Silva, @resende, @naps62)
+$40.62 USDC » @Yiko 
+$40.62 USDC » 0xsolstars(@Varun_Verma, @masterchief)
+$40.62 USDC » @p_crypt0 
+$40.62 USDC » @++Jujic#5558 
+$40.62 USDC » @Throne6g 
+$25.39 USDC » @Noam Yakov 
+$22.03 USDC » @Chinmay 
+$22.03 USDC » @eierina 
+$22.03 USDC » @jag 
+$21.76 USDC » @bharg4v 
+$21.73 USDC » @0X040 
+$21.73 USDC » @ballx 
+$21.73 USDC » @durianSausage 
+$21.73 USDC » @Metatron 
+$21.73 USDC » @ret2basic.eth 
+$21.72 USDC » @0xsam 
+$21.72 USDC » @Fitraldys 
+$21.72 USDC » @gerdusx 
+$21.72 USDC » @kyteg 
+$21.72 USDC » @apostle0x01 
+$21.72 USDC » @lucacez 
+$21.72 USDC » @dharma09 
+$21.72 USDC » @PaludoX0 
+$21.72 USDC » @zeesaw 
+$21.72 USDC » @0xc0ffEE 
+$21.72 USDC » @Tofunmi 
+$21.72 USDC » @teddav 
+
+🏁 Findings summary
+---------------------------
+High risk findings: 48 total, 6 unique
+Med risk findings: 61 total, 20 unique
+Gas reports: 91 
+QA reports: 99
+
+Awards will be distributed on Polygon within the next 1-2 weeks. Congratulations! 💸 💸
+
+{Reactions}
+🎉 (4) 4739_Skeletor 
+
+[09/14/2022 8:13 AM] ak19966
+Can someone share the repo link where we can see all of our submissions whether they are valid or invalid and reson for invalid
+
+
+[09/14/2022 8:13 AM] ak19966
+?
+
+
+[09/14/2022 8:51 AM] 0xsorrynotsorry
+The repos remain private until the contest reports are published. So it's not possible to see it unless you have a backstage role.
+
+
+[09/14/2022 8:55 AM] ruhum
+https://github.com/code-423n4/2022-08-rigor-findings
+
+{Embed}
+https://github.com/code-423n4/2022-08-rigor-findings
+GitHub - code-423n4/2022-08-rigor-findings
+Contribute to code-423n4/2022-08-rigor-findings development by creating an account on GitHub.
+Code4rena - ARCHIVE-Q3-2022 - ☑rigor-aug1 [1002295732000264323].txt_Files/f8cf44df-2b38-46ea-b90a-984211cf2629-F54EB
+
+
+[09/14/2022 8:56 AM] 0xsorrynotsorry
+Ah it's already public 😅 Sorry for misguiding you bro @ak1
+
+
+[09/14/2022 9:36 AM] ak19966
+But when i look at it.. it has only the valid and approved ..the repo does not have all the issues either they are valid or not.
+
+
+[09/14/2022 9:39 AM] JohnSmith#1623
+looking for this?
+https://github.com/code-423n4/2022-08-rigor-findings/issues/317
+
+
+[09/14/2022 9:40 AM] ak19966
+Exactly...
+
+
+[09/14/2022 9:40 AM] ak19966
+Thanks for sharing
+
+
+[09/14/2022 9:47 AM] ak19966
+I believe.. when the loop break.. 'i' already incremented...
+
+
+[09/14/2022 9:49 AM] ak19966
+That means the task index is passed without allocation
+
+
+[09/14/2022 9:49 AM] ak19966
+For the next cycle... It's start with next index..
+
+
+[09/14/2022 9:49 AM] ak19966
+One task is skipped without allocation
+
+
+[09/14/2022 11:28 AM] ak19966
+Looking for comments from judges. .. ofcourse others also can comment
+
+
+[09/14/2022 11:29 AM] ak19966
+In contest repo it was mentioned like any logic error also could be considered as bug
+
+
+[09/14/2022 11:30 AM] ak19966
+The secnario here is , when we assign 10 task.. out of 10, 9 only can be counted..
+
+
+[09/14/2022 11:31 AM] ak19966
+Ignoring or missing the one task is reasonable issue looked into.. it's housing loan kind of project... Number taks also can be counted as asset..
+
+
+[09/14/2022 11:33 AM] ak19966
+When 10 tasks were  assigned, each has value of 10000 units.. totally 10 * 10000 has to be allocated.. but in the logic error .. even thought the total allocation was 10 * 10000 , actually just 9 * 10000 value of work only done
+
+
+[09/14/2022 11:33 AM] ak19966
+Where is 10000
+
+
+[09/14/2022 11:33 AM] ak19966
+?
+
+
+[09/14/2022 11:44 AM] minh___
+you are right about that
+
+
+[09/14/2022 11:44 AM] minh___
+but not about that from what I can tell
+
+
+[09/14/2022 11:45 AM] minh___
+the first iteration is done with the value of i = lastAllocatedChangeOrderTask so dont think anything gets skipped
+
+
+[09/14/2022 11:46 AM] ak19966
+Yes.. it's going to start with value of i only.. but for the next cycle .. it would have missed without allocation.. that i will not participate for allocation
+
+
+[09/14/2022 11:46 AM] ak19966
+If you look at the codes . Same logic is done for next to this code block
+
+
+[09/14/2022 11:46 AM] ak19966
+There it's is handled
+
+
+[09/14/2022 11:47 AM] ak19966
+They would have decrement i value before assign for next round of allocation
+
+
+[09/14/2022 11:53 AM] ak19966
+The fact is the starting is from 0 .. not from 1
+
+
+[09/14/2022 11:53 AM] ak19966
+If it  start from 1 then no issue. Since it start from 0. The issue comes
+
+
+[09/14/2022 12:13 PM] minh___
+if you mean ` lastAllocatedTask = --j;` thats done, because there is also an increment in the loop header at the beginning: `for (++j; j <= taskCount; j++) {`
+
+
+[09/14/2022 12:14 PM] minh___
+you dont have that in your loop
+
+
+[09/14/2022 12:16 PM] ak19966
+I see..
+
+
+[09/14/2022 12:16 PM] ak19966
+Let me check again
+
+
+[09/14/2022 12:16 PM] ak19966
+What about memory allocation
+
+
+[09/14/2022 12:16 PM] ak19966
+?
+
+
+[09/14/2022 12:18 PM] minh___
+yea what about it?
+
+
+[09/14/2022 12:24 PM] ak19966
+uint256[] memory _tasksAllocated = new uint256[](
+            taskCount - j + _changeOrderedTask.length - i
+        );
+
+
+[09/14/2022 12:24 PM] ak19966
+Will it allocate the actual amount of memory
+
+
+[09/14/2022 12:25 PM] ak19966
+i is deducted here
+
+
+[09/14/2022 12:26 PM] ak19966
+Which mean  decremented i is more than what was required i believe
+
+
+[09/14/2022 1:11 PM] ak19966
+Oh man.. again this one
+
+
+[09/14/2022 1:11 PM] ak19966
+https://github.com/code-423n4/2022-08-rigor-findings/issues/348
+
+{Embed}
+https://github.com/code-423n4/2022-08-rigor-findings/issues/348
+It should not submit a project with no total budget. Requires at le...
+Lines of code https://github.com/code-423n4/2022-08-rigor/blob/main/contracts/Community.sol#L206-L282 Vulnerability details Impact When publishing a project, there is still possibility the project ...
+Code4rena - ARCHIVE-Q3-2022 - ☑rigor-aug1 [1002295732000264323].txt_Files/348-5C355
+
+
+[09/14/2022 1:11 PM] ak19966
+I also raised this to the sponsor and the sponsor said like
+
+
+[09/14/2022 1:18 PM] ak19966
+The doc are very old and no need to worry
+
+
+[09/15/2022 10:59 AM] PaludoX0#9748
+Hi, which token are you going to use to distribute awards?
+
+
+[09/15/2022 11:06 AM] codingnamekiki
+USDC
+
+{Reactions}
+thankyou 
+
+[09/20/2022 6:43 AM] arcoun.
+Hello judges, @JtP | WATCHPUG . May I ask why my issue https://github.com/code-423n4/2022-08-rigor-findings/issues/94, marked as a duplicate of both #298 and #327, has only been triaged into M-05 and not H-05?
+
+{Embed}
+https://github.com/code-423n4/2022-08-rigor-findings/issues/94,
+Issues · code-423n4/2022-08-rigor-findings
+Contribute to code-423n4/2022-08-rigor-findings development by creating an account on GitHub.
+Code4rena - ARCHIVE-Q3-2022 - ☑rigor-aug1 [1002295732000264323].txt_Files/f8cf44df-2b38-46ea-b90a-984211cf2629-F54EB
+
+
+[09/22/2022 2:23 AM] dannygfromnyc
+Hello, the issue raised in https://github.com/code-423n4/2022-08-rigor-findings/issues/149 was labelled a Medium in the final report. Can the impact of the finding be raised?  We were not credited for the finding but it was submitted. Thank you. @JtP | WATCHPUG
+
+{Embed}
+https://github.com/code-423n4/2022-08-rigor-findings/issues/149
+QA Report · Issue #149 · code-423n4/2022-08-rigor-findings
+In the contest docs, it is specifically mentioned that: “Note that you cannot submit a project with no total budget. Therefore it requires at least one task with a budget &gt; 0.” However, it i...
+Code4rena - ARCHIVE-Q3-2022 - ☑rigor-aug1 [1002295732000264323].txt_Files/149-DE54D
+
+
+[09/22/2022 11:38 AM] jack.the.pug
+See: https://github.com/code-423n4/2022-08-rigor-findings/discussions/414#discussioncomment-3522291
+
+{Embed}
+https://github.com/code-423n4/2022-08-rigor-findings/discussions/414
+Post-judging QA · Discussion #414 · code-423n4/2022-08-rigor-findin...
+🧑‍⚖️ Post-judging QA deadline 09/02/2022 09:00PM PST Please post feedback about specific findings on the relevant issue in this repo. More general feedback for the judge can be shared here. The jud...
+Code4rena - ARCHIVE-Q3-2022 - ☑rigor-aug1 [1002295732000264323].txt_Files/414-A4BB5
+
+
+[09/22/2022 11:45 AM] arcoun.
+Hello @JtP | WATCHPUG. What about https://github.com/code-423n4/2022-08-rigor-findings/issues/94, marked as a duplicate of both #298 and #327, which has only been triaged into M-05 and not H-05?
+
+{Embed}
+https://github.com/code-423n4/2022-08-rigor-findings/issues/94,
+Issues · code-423n4/2022-08-rigor-findings
+Contribute to code-423n4/2022-08-rigor-findings development by creating an account on GitHub.
+Code4rena - ARCHIVE-Q3-2022 - ☑rigor-aug1 [1002295732000264323].txt_Files/f8cf44df-2b38-46ea-b90a-984211cf2629-F54EB
+
+
+[09/22/2022 11:45 AM] jack.the.pug
+This is a mistake; I should have labeled it as a duplicate of both issues. Your write-up is excellent, this should even be made the primary issue of both issues, and all others can be the dups of this.
+
+However, I'm afraid the results and final report are final, according to the C4 rules, I can not change them. I'm sorry for the trouble.
+
+
+[09/22/2022 11:50 AM] arcoun.
+A bit saddening to not have the related award, but thanks for the explanation.
+
+{Reactions}
+empathy (2) 
+
+[09/22/2022 10:44 PM] rotcivegaf
+@JtP | WATCHPUG can I speak with you via MP?
+
+
+[10/01/2022 1:45 AM] jayphbee
+Learned a lot when review the report, especially signature reuse case study.
+
+
+==============================================================
+Exported 187 message(s)
+==============================================================
